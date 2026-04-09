@@ -66,405 +66,433 @@
       .tl-item { flex-direction: column; gap: 2px; }
       .tl-date { width: auto; }
     }
+
+    /* Language switcher */
+    .lang-switcher { position: sticky; top: 0; z-index: 100; background: #fff; display: flex; justify-content: center; gap: 8px; padding: 14px 0; border-bottom: 1px solid rgba(56,56,56,0.06); margin: -56px -48px 0; padding-left: 48px; padding-right: 48px; }
+    .lang-btn { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(56,56,56,0.12); background: transparent; color: rgba(56,56,56,0.4); padding: 6px 20px; cursor: pointer; transition: all 0.2s ease; }
+    .lang-btn:hover { border-color: #b5a291; color: #b5a291; }
+    .lang-btn.active { background: #b5a291; color: #fff; border-color: #b5a291; }
+    @media (max-width: 768px) {
+      .lang-switcher { margin: -28px -18px 0; padding-left: 18px; padding-right: 18px; }
+    }
+
+    /* Language visibility */
+    .lang-en, .lang-hu { display: none; }
   </style>
 </head>
 <body>
 
+<div class="lang-switcher">
+  <button class="lang-btn active" onclick="setLang('sl')">SL</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('hu')">HU</button>
+</div>
+
+<div style="height: 56px;"></div>
+
 <div class="header">
   <div class="logo">Ananya</div>
-  <div class="sub">Celoten postopek izvedbe projekta</div>
-  <div class="tagline">Operativni na&ccaron;rt &mdash; od nakupa vozila do serijske proizvodnje</div>
+  <div class="sub">
+    <span class="lang-sl">Celoten postopek izvedbe projekta</span><span class="lang-en">Complete project implementation process</span><span class="lang-hu">A projekt teljes megval&oacute;s&iacute;t&aacute;si folyamata</span>
+  </div>
+  <div class="tagline">
+    <span class="lang-sl">Operativni na&ccaron;rt &mdash; od nakupa vozila do serijske proizvodnje</span><span class="lang-en">Operational plan &mdash; from vehicle purchase to serial production</span><span class="lang-hu">Operat&iacute;v terv &mdash; a j&aacute;rm&udblac;v&aacute;s&aacute;rl&aacute;st&oacute;l a sorozatgy&aacute;rt&aacute;sig</span>
+  </div>
   <div class="meta">
-    <span>Zaupno</span><span class="dot">&middot;</span>
+    <span><span class="lang-sl">Zaupno</span><span class="lang-en">Confidential</span><span class="lang-hu">Bizalmas</span></span><span class="dot">&middot;</span>
     <span>April 2026</span><span class="dot">&middot;</span>
     <span>Rok Kordin, founder</span><span class="dot">&middot;</span>
-    <span>Erika Gy&ouml;rei, investitor</span>
+    <span><span class="lang-sl">Erika Gy&ouml;rei, investitor</span><span class="lang-en">Erika Gy&ouml;rei, investor</span><span class="lang-hu">Gy&ouml;rei Erika, befektet&odblac;</span></span>
   </div>
   <div class="divider"></div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>1. Osnovno vozilo</h1>
+<h1>1. <span class="lang-sl">Osnovno vozilo</span><span class="lang-en">Base vehicle</span><span class="lang-hu">Alapj&aacute;rm&udblac;</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
-<h2>1.1 Podatki o vozilu</h2>
+<h2>1.1 <span class="lang-sl">Podatki o vozilu</span><span class="lang-en">Vehicle specifications</span><span class="lang-hu">J&aacute;rm&udblac;adatok</span></h2>
 
 <div class="info-box">
   <div class="label">Mercedes-Benz Sprinter Panel Van SELECT 419 CDI long</div>
-  <strong>Model:</strong> New Sprinter (907/910) &middot; <strong>Pogon:</strong> AWD 4&times;4 &middot; <strong>Motor:</strong> OM 654 DE 20 LA, 140 kW (190 PS)<br>
-  <strong>Menjalnik:</strong> 9G-TRONIC &middot; <strong>Medosje:</strong> 4325 mm &middot; <strong>Masa:</strong> 4100 kg &middot; <strong>Streha:</strong> visoka<br>
-  <strong>Baumuster:</strong> 90764513 &middot; <strong>Konfiguracija:</strong> M2UJB5TR<br>
-  <strong>COC:</strong> nepopoln (incomplete) &mdash; potrebna posamična odobritev po predelavi<br><br>
-  <strong>Cena v MB salonu (Slovenija):</strong> <span class="accent">&euro;97.524 neto / &euro;116.054 z DDV</span><br>
-  <strong>Cena od Robeta (bodybuilder discount):</strong> <span class="accent">&euro;55.000 neto</span><br>
-  <span class="muted">Prihranek: &euro;42.524 neto (44% popust preko Robeta pogodbene cene z MB)</span>
+  <strong>Model:</strong> New Sprinter (907/910) &middot; <strong><span class="lang-sl">Pogon</span><span class="lang-en">Drive</span><span class="lang-hu">Hajt&aacute;s</span>:</strong> AWD 4&times;4 &middot; <strong><span class="lang-sl">Motor</span><span class="lang-en">Engine</span><span class="lang-hu">Motor</span>:</strong> OM 654 DE 20 LA, 140 kW (190 PS)<br>
+  <strong><span class="lang-sl">Menjalnik</span><span class="lang-en">Transmission</span><span class="lang-hu">Sebess&eacute;gv&aacute;lt&oacute;</span>:</strong> 9G-TRONIC &middot; <strong><span class="lang-sl">Medosje</span><span class="lang-en">Wheelbase</span><span class="lang-hu">Tengelyt&aacute;v</span>:</strong> 4325 mm &middot; <strong><span class="lang-sl">Masa</span><span class="lang-en">GVW</span><span class="lang-hu">&Ouml;sszt&ouml;meg</span>:</strong> 4100 kg &middot; <strong><span class="lang-sl">Streha</span><span class="lang-en">Roof</span><span class="lang-hu">Tet&odblac;</span>:</strong> <span class="lang-sl">visoka</span><span class="lang-en">high</span><span class="lang-hu">magas</span><br>
+  <strong>Baumuster:</strong> 90764513 &middot; <strong><span class="lang-sl">Konfiguracija</span><span class="lang-en">Configuration</span><span class="lang-hu">Konfigur&aacute;ci&oacute;</span>:</strong> M2UJB5TR<br>
+  <strong>COC:</strong> <span class="lang-sl">nepopoln (incomplete) &mdash; potrebna posamična odobritev po predelavi</span><span class="lang-en">incomplete &mdash; individual approval required after conversion</span><span class="lang-hu">hi&aacute;nyos (incomplete) &mdash; az &aacute;talak&iacute;t&aacute;s ut&aacute;n egyedi j&oacute;v&aacute;hagy&aacute;s sz&uuml;ks&eacute;ges</span><br><br>
+  <strong><span class="lang-sl">Cena v MB salonu (Slovenija)</span><span class="lang-en">Price at MB dealership (Slovenia)</span><span class="lang-hu">&Aacute;r az MB szalonban (Szlov&eacute;nia)</span>:</strong> <span class="accent">&euro;97.524 <span class="lang-sl">neto</span><span class="lang-en">net</span><span class="lang-hu">nett&oacute;</span> / &euro;116.054 <span class="lang-sl">z DDV</span><span class="lang-en">incl. VAT</span><span class="lang-hu">&Aacute;F&Aacute;-val</span></span><br>
+  <strong><span class="lang-sl">Cena od Robeta (bodybuilder discount)</span><span class="lang-en">Price from Robeta (bodybuilder discount)</span><span class="lang-hu">&Aacute;r a Robet&aacute;t&oacute;l (bodybuilder kedvezm&eacute;ny)</span>:</strong> <span class="accent">&euro;55.000 <span class="lang-sl">neto</span><span class="lang-en">net</span><span class="lang-hu">nett&oacute;</span></span><br>
+  <span class="muted"><span class="lang-sl">Prihranek: &euro;42.524 neto (44% popust preko Robeta pogodbene cene z MB)</span><span class="lang-en">Savings: &euro;42,524 net (44% discount via Robeta&rsquo;s contractual price with MB)</span><span class="lang-hu">Megtakar&iacute;t&aacute;s: &euro;42.524 nett&oacute; (44% kedvezm&eacute;ny a Robeta MB szerz&odblac;d&eacute;ses &aacute;r&aacute;n)</span></span>
 </div>
 
-<p>Vozilo je trenutno že pri Alfastreet v Se&zcaron;ani (dostavljeno s strani Robeta). Potreben je le &scaron;e odkup.</p>
+<p><span class="lang-sl">Vozilo je trenutno že pri Alfastreet v Se&zcaron;ani (dostavljeno s strani Robeta). Potreben je le &scaron;e odkup.</span><span class="lang-en">The vehicle is currently already at Alfastreet in Se&zcaron;ana (delivered by Robeta). Only the purchase remains.</span><span class="lang-hu">A j&aacute;rm&udblac; jelenleg m&aacute;r az Alfastretn&eacute;l van Se&zcaron;an&aacute;ban (a Robeta sz&aacute;ll&iacute;totta). M&aacute;r csak a megv&aacute;s&aacute;rl&aacute;s sz&uuml;ks&eacute;ges.</span></p>
 
-<h2>1.2 Kdo kupi vozilo? &mdash; Predlog</h2>
+<h2>1.2 <span class="lang-sl">Kdo kupi vozilo? &mdash; Predlog</span><span class="lang-en">Who purchases the vehicle? &mdash; Proposal</span><span class="lang-hu">Ki v&aacute;s&aacute;rolja meg a j&aacute;rm&udblac;vet? &mdash; Javaslat</span></h2>
 
 <div class="warn-box">
-  <div class="label">Klju&ccaron;no vpra&scaron;anje</div>
-  Glam-van d.o.o. <strong>&scaron;e ni ustanovljen</strong>. Zato predlagamo, da vozilo kupi neposredno <strong>Erika oz. njeno podjetje GY&Ouml;REI Kft.</strong> (Madžarska).
+  <div class="label"><span class="lang-sl">Klju&ccaron;no vpra&scaron;anje</span><span class="lang-en">Key question</span><span class="lang-hu">Kulcsk&eacute;rd&eacute;s</span></div>
+  <span class="lang-sl">Glam-van d.o.o. <strong>&scaron;e ni ustanovljen</strong>. Zato predlagamo, da vozilo kupi neposredno <strong>Erika oz. njeno podjetje GY&Ouml;REI Kft.</strong> (Madžarska).</span><span class="lang-en">Glam-van d.o.o. <strong>has not yet been established</strong>. Therefore we propose that the vehicle be purchased directly by <strong>Erika or her company GY&Ouml;REI Kft.</strong> (Hungary).</span><span class="lang-hu">A Glam-van d.o.o. <strong>m&eacute;g nem ker&uuml;lt megalap&iacute;t&aacute;sra</strong>. Ez&eacute;rt javasoljuk, hogy a j&aacute;rm&udblac;vet k&ouml;zvetlen&uuml;l <strong>Erika, illetve a GY&Ouml;REI Kft.</strong> (Magyarorsz&aacute;g) v&aacute;s&aacute;rolja meg.</span>
 </div>
 
-<h3>Predlog: Erika / GY&Ouml;REI Kft. kupi neposredno od Robeta</h3>
+<h3><span class="lang-sl">Predlog: Erika / GY&Ouml;REI Kft. kupi neposredno od Robeta</span><span class="lang-en">Proposal: Erika / GY&Ouml;REI Kft. purchases directly from Robeta</span><span class="lang-hu">Javaslat: Erika / GY&Ouml;REI Kft. k&ouml;zvetlen&uuml;l a Robet&aacute;t&oacute;l v&aacute;s&aacute;rol</span></h3>
 
-<p><strong>Prednosti:</strong></p>
+<p><strong><span class="lang-sl">Prednosti</span><span class="lang-en">Advantages</span><span class="lang-hu">El&odblac;ny&ouml;k</span>:</strong></p>
 <ul style="margin: 0 0 16px 24px; line-height: 2;">
-  <li>Vozilo je <strong>v lasti Erike</strong> &mdash; služi kot <strong>garancija za vložen denar</strong> (kolateral)</li>
-  <li>Ni potrebe čakati na ustanovitev Glam-van d.o.o.</li>
-  <li>Erika kot lastnica lahko vozilo <strong>zavaruje kasko</strong> (toča, transport, poškodbe)</li>
-  <li>Vozilo je registrirano na HU podjetje &mdash; DDV obračun po EU pravilih (reverse charge)</li>
-  <li>Ob prodaji demo vozila (konec 2026) se lastništvo prenese na kupca &mdash; Glam-van izda račun kot posrednik</li>
+  <li><span class="lang-sl">Vozilo je <strong>v lasti Erike</strong> &mdash; služi kot <strong>garancija za vložen denar</strong> (kolateral)</span><span class="lang-en">The vehicle is <strong>owned by Erika</strong> &mdash; serves as <strong>collateral for the invested capital</strong></span><span class="lang-hu">A j&aacute;rm&udblac; <strong>Erika tulajdon&aacute;ban</strong> van &mdash; <strong>fedezet&uuml;l szolg&aacute;l a befektetett t&odblac;k&eacute;re</strong></span></li>
+  <li><span class="lang-sl">Ni potrebe čakati na ustanovitev Glam-van d.o.o.</span><span class="lang-en">No need to wait for the establishment of Glam-van d.o.o.</span><span class="lang-hu">Nem kell megv&aacute;rni a Glam-van d.o.o. megalap&iacute;t&aacute;s&aacute;t</span></li>
+  <li><span class="lang-sl">Erika kot lastnica lahko vozilo <strong>zavaruje kasko</strong> (toča, transport, poškodbe)</span><span class="lang-en">As the owner, Erika can <strong>insure the vehicle (comprehensive)</strong> (hail, transport, damage)</span><span class="lang-hu">Erika tulajdonosk&eacute;nt <strong>casco biztos&iacute;t&aacute;st k&ouml;thet</strong> a j&aacute;rm&udblac;re (j&eacute;gk&aacute;r, sz&aacute;ll&iacute;t&aacute;s, s&eacute;r&uuml;l&eacute;s)</span></li>
+  <li><span class="lang-sl">Vozilo je registrirano na HU podjetje &mdash; DDV obračun po EU pravilih (reverse charge)</span><span class="lang-en">The vehicle is registered to an HU company &mdash; VAT settled under EU rules (reverse charge)</span><span class="lang-hu">A j&aacute;rm&udblac; HU c&eacute;gre van regisztr&aacute;lva &mdash; az &Aacute;FA elsz&aacute;mol&aacute;s EU szab&aacute;lyok szerint (ford&iacute;tott ad&oacute;z&aacute;s)</span></li>
+  <li><span class="lang-sl">Ob prodaji demo vozila (konec 2026) se lastništvo prenese na kupca &mdash; Glam-van izda račun kot posrednik</span><span class="lang-en">Upon sale of the demo vehicle (end of 2026) ownership transfers to the buyer &mdash; Glam-van issues the invoice as intermediary</span><span class="lang-hu">A dem&oacute; j&aacute;rm&udblac; &eacute;rt&eacute;kes&iacute;t&eacute;sekor (2026 v&eacute;ge) a tulajdonjog &aacute;tsz&aacute;ll a vev&odblac;re &mdash; a Glam-van k&ouml;zvet&iacute;t&odblac;k&eacute;nt &aacute;ll&iacute;tja ki a sz&aacute;ml&aacute;t</span></li>
 </ul>
 
-<p><strong>Postopek:</strong></p>
+<p><strong><span class="lang-sl">Postopek</span><span class="lang-en">Procedure</span><span class="lang-hu">Elj&aacute;r&aacute;s</span>:</strong></p>
 <div class="step">
   <div class="step-num">1</div>
   <div class="step-content">
-    <strong>Robeta izda račun na GY&Ouml;REI Kft.</strong> v višini &euro;55.000 neto. Ker gre za intra-EU dobavo (SI &rarr; HU), se DDV obračuna po reverse charge mehanizmu. Erika ne plača slovenskega DDV.
+    <span class="lang-sl"><strong>Robeta izda račun na GY&Ouml;REI Kft.</strong> v višini &euro;55.000 neto. Ker gre za intra-EU dobavo (SI &rarr; HU), se DDV obračuna po reverse charge mehanizmu. Erika ne plača slovenskega DDV.</span><span class="lang-en"><strong>Robeta issues an invoice to GY&Ouml;REI Kft.</strong> in the amount of &euro;55,000 net. As this is an intra-EU supply (SI &rarr; HU), VAT is settled via the reverse charge mechanism. Erika does not pay Slovenian VAT.</span><span class="lang-hu"><strong>A Robeta sz&aacute;ml&aacute;t &aacute;ll&iacute;t ki a GY&Ouml;REI Kft. r&eacute;sz&eacute;re</strong> &euro;55.000 nett&oacute; &ouml;sszegben. Mivel EU-n bel&uuml;li &eacute;rt&eacute;kes&iacute;t&eacute;sr&odblac;l van sz&oacute; (SI &rarr; HU), az &Aacute;FA ford&iacute;tott ad&oacute;z&aacute;ssal ker&uuml;l elsz&aacute;mol&aacute;sra. Erika nem fizet szlov&eacute;n &Aacute;F&Aacute;-t.</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">2</div>
   <div class="step-content">
-    <strong>Erika sklene kasko zavarovanje</strong> za vozilo (vklj. transport, toča, nesreča, vandalizem). Priporočamo zavarovanje pri madžarskem ali slovenskem zavarovalcu za čas, ko je vozilo v SLO pri Alfastreet.
+    <span class="lang-sl"><strong>Erika sklene kasko zavarovanje</strong> za vozilo (vklj. transport, toča, nesreča, vandalizem). Priporočamo zavarovanje pri madžarskem ali slovenskem zavarovalcu za čas, ko je vozilo v SLO pri Alfastreet.</span><span class="lang-en"><strong>Erika arranges comprehensive insurance</strong> for the vehicle (incl. transport, hail, accident, vandalism). We recommend insurance with a Hungarian or Slovenian insurer for the period the vehicle is in Slovenia at Alfastreet.</span><span class="lang-hu"><strong>Erika casco biztos&iacute;t&aacute;st k&ouml;t</strong> a j&aacute;rm&udblac;re (bele&eacute;rtve: sz&aacute;ll&iacute;t&aacute;s, j&eacute;gk&aacute;r, baleset, vandalizmus). Javasoljuk a biztos&iacute;t&aacute;s megk&ouml;t&eacute;s&eacute;t magyar vagy szlov&eacute;n biztos&iacute;t&oacute;n&aacute;l arra az id&odblac;szakra, am&iacute;g a j&aacute;rm&udblac; Szlov&eacute;ni&aacute;ban az Alfastretn&eacute;l tart&oacute;zkodik.</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">3</div>
   <div class="step-content">
-    <strong>Vozilo ostane pri Alfastreet v Sežani</strong> ves čas gradnje. Alfastreet ga prevzame kot podizvajalec &mdash; ni potrebe po prevažanju.
+    <span class="lang-sl"><strong>Vozilo ostane pri Alfastreet v Sežani</strong> ves čas gradnje. Alfastreet ga prevzame kot podizvajalec &mdash; ni potrebe po prevažanju.</span><span class="lang-en"><strong>The vehicle remains at Alfastreet in Sežana</strong> for the entire build period. Alfastreet takes it over as subcontractor &mdash; no transport required.</span><span class="lang-hu"><strong>A j&aacute;rm&udblac; az Alfastretn&eacute;l marad Se&zcaron;an&aacute;ban</strong> a teljes &eacute;p&iacute;t&eacute;s sor&aacute;n. Az Alfastreet alvállalkoz&oacute;k&eacute;nt veszi &aacute;t &mdash; nem sz&uuml;ks&eacute;ges sz&aacute;ll&iacute;t&aacute;s.</span>
   </div>
 </div>
 
 <div class="info-box">
-  <div class="label">Pomembno</div>
-  Ko bo Glam-van d.o.o. ustanovljen, se lahko lastništvo prenese na Glam-van (ali pa Erika obdrži lastništvo do prodaje demo vozila). Odvisno od dogovora.
+  <div class="label"><span class="lang-sl">Pomembno</span><span class="lang-en">Important</span><span class="lang-hu">Fontos</span></div>
+  <span class="lang-sl">Ko bo Glam-van d.o.o. ustanovljen, se lahko lastništvo prenese na Glam-van (ali pa Erika obdrži lastništvo do prodaje demo vozila). Odvisno od dogovora.</span><span class="lang-en">Once Glam-van d.o.o. is established, ownership can be transferred to Glam-van (or Erika retains ownership until the demo vehicle is sold). Subject to agreement.</span><span class="lang-hu">A Glam-van d.o.o. megalap&iacute;t&aacute;s&aacute;t k&ouml;vet&odblac;en a tulajdonjog &aacute;truh&aacute;zhat&oacute; a Glam-vanra (vagy Erika megtartja a tulajdonjogot a dem&oacute; j&aacute;rm&udblac; &eacute;rt&eacute;kes&iacute;t&eacute;s&eacute;ig). Meg&aacute;llapod&aacute;s f&uuml;ggv&eacute;nye.</span>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>2. Alfastreet &mdash; Gradnja prototipa</h1>
+<h1>2. Alfastreet &mdash; <span class="lang-sl">Gradnja prototipa</span><span class="lang-en">Prototype build</span><span class="lang-hu">Protot&iacute;pus &eacute;p&iacute;t&eacute;se</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
-<h2>2.1 Ponudba Alfastreet (26/0004)</h2>
+<h2>2.1 <span class="lang-sl">Ponudba Alfastreet (26/0004)</span><span class="lang-en">Alfastreet quotation (26/0004)</span><span class="lang-hu">Alfastreet aj&aacute;nlat (26/0004)</span></h2>
 
 <div class="info-box">
-  <div class="label">Wood Tech d.o.o. (Alfastreet) &middot; Ponudba 26/0004</div>
-  <strong>Predmet:</strong> Izdelava opreme za prototip vozila MB ANANYA &mdash; krajši model<br>
-  <strong>Cena:</strong> &euro;54.830 neto (&euro;66.893 z DDV 22%)<br>
-  <strong>Rok izdelave:</strong> 12 tednov od prejema naročila<br>
-  <strong>Rok dobave vozila:</strong> 5 dni po prejetem naročilu (vozilo je že pri njih)<br><br>
-  <strong>Vklju&ccaron;eno:</strong> izdelava opreme po navodilih naročnika, montaža, vzorčenje artiklov (1&times; mock-up + 1&times; končna verzija), okovja/zapirala/pritrdilni elementi, potrošni material, čiščenje vozila, projektna dokumentacija.<br>
-  <strong>Dokumentacija:</strong> ostaja last naročnika.
+  <div class="label">Wood Tech d.o.o. (Alfastreet) &middot; <span class="lang-sl">Ponudba</span><span class="lang-en">Quotation</span><span class="lang-hu">Aj&aacute;nlat</span> 26/0004</div>
+  <strong><span class="lang-sl">Predmet</span><span class="lang-en">Subject</span><span class="lang-hu">T&aacute;rgy</span>:</strong> <span class="lang-sl">Izdelava opreme za prototip vozila MB ANANYA &mdash; krajši model</span><span class="lang-en">Manufacturing of equipment for the MB ANANYA prototype vehicle &mdash; short model</span><span class="lang-hu">Az MB ANANYA protot&iacute;pus j&aacute;rm&udblac; berendez&eacute;s&eacute;nek gy&aacute;rt&aacute;sa &mdash; r&ouml;vid modell</span><br>
+  <strong><span class="lang-sl">Cena</span><span class="lang-en">Price</span><span class="lang-hu">&Aacute;r</span>:</strong> &euro;54.830 <span class="lang-sl">neto</span><span class="lang-en">net</span><span class="lang-hu">nett&oacute;</span> (&euro;66.893 <span class="lang-sl">z DDV 22%</span><span class="lang-en">incl. 22% VAT</span><span class="lang-hu">22% &Aacute;F&Aacute;-val</span>)<br>
+  <strong><span class="lang-sl">Rok izdelave</span><span class="lang-en">Production time</span><span class="lang-hu">Gy&aacute;rt&aacute;si hat&aacute;rid&odblac;</span>:</strong> <span class="lang-sl">12 tednov od prejema naročila</span><span class="lang-en">12 weeks from order confirmation</span><span class="lang-hu">12 h&eacute;t a megrendel&eacute;s be&eacute;rkez&eacute;s&eacute;t&odblac;l</span><br>
+  <strong><span class="lang-sl">Rok dobave vozila</span><span class="lang-en">Vehicle delivery deadline</span><span class="lang-hu">A j&aacute;rm&udblac; &aacute;tad&aacute;s&aacute;nak hat&aacute;rideje</span>:</strong> <span class="lang-sl">5 dni po prejetem naročilu (vozilo je že pri njih)</span><span class="lang-en">5 days after order receipt (vehicle is already with them)</span><span class="lang-hu">5 nappal a megrendel&eacute;s ut&aacute;n (a j&aacute;rm&udblac; m&aacute;r n&aacute;luk van)</span><br><br>
+  <strong><span class="lang-sl">Vklju&ccaron;eno</span><span class="lang-en">Included</span><span class="lang-hu">Tartalmazza</span>:</strong> <span class="lang-sl">izdelava opreme po navodilih naročnika, montaža, vzorčenje artiklov (1&times; mock-up + 1&times; končna verzija), okovja/zapirala/pritrdilni elementi, potrošni material, čiščenje vozila, projektna dokumentacija.</span><span class="lang-en">equipment manufacturing per client specifications, assembly, article sampling (1&times; mock-up + 1&times; final version), fittings/locks/fasteners, consumables, vehicle cleaning, project documentation.</span><span class="lang-hu">berendez&eacute;sgy&aacute;rt&aacute;s a megrendel&odblac; utas&iacute;t&aacute;sai szerint, szerel&eacute;s, term&eacute;kmint&aacute;z&aacute;s (1&times; makett + 1&times; v&eacute;gleges v&aacute;ltozat), vasalatok/z&aacute;rak/r&ouml;gz&iacute;t&odblac;elemek, fogyóanyag, j&aacute;rm&udblac;tiszt&iacute;t&aacute;s, projekt-dokument&aacute;ci&oacute;.</span><br>
+  <strong><span class="lang-sl">Dokumentacija</span><span class="lang-en">Documentation</span><span class="lang-hu">Dokument&aacute;ci&oacute;</span>:</strong> <span class="lang-sl">ostaja last naročnika.</span><span class="lang-en">remains the property of the client.</span><span class="lang-hu">a megrendel&odblac; tulajdon&aacute;ban marad.</span>
 </div>
 
-<h2>2.2 Plačilni pogoji (prilagojeni &mdash; začetek 1. maj 2026)</h2>
+<h2>2.2 <span class="lang-sl">Plačilni pogoji (prilagojeni &mdash; začetek 1. maj 2026)</span><span class="lang-en">Payment terms (adjusted &mdash; starting 1 May 2026)</span><span class="lang-hu">Fizet&eacute;si felt&eacute;telek (m&oacute;dos&iacute;tott &mdash; kezd&eacute;s: 2026. m&aacute;jus 1.)</span></h2>
 
 <table>
   <thead>
-    <tr><th>Faza</th><th>Delež</th><th>Datum</th><th>Znesek (neto)</th></tr>
+    <tr><th><span class="lang-sl">Faza</span><span class="lang-en">Phase</span><span class="lang-hu">F&aacute;zis</span></th><th><span class="lang-sl">Delež</span><span class="lang-en">Share</span><span class="lang-hu">Ar&aacute;ny</span></th><th><span class="lang-sl">Datum</span><span class="lang-en">Date</span><span class="lang-hu">D&aacute;tum</span></th><th><span class="lang-sl">Znesek (neto)</span><span class="lang-en">Amount (net)</span><span class="lang-hu">&Ouml;sszeg (nett&oacute;)</span></th></tr>
   </thead>
   <tbody>
-    <tr><td>1. Ob naročilu</td><td>30%</td><td>1. maj 2026</td><td>&euro;16.449</td></tr>
-    <tr><td>2. Ob izdelavi mock-up</td><td>30%</td><td>~1. junij 2026</td><td>&euro;16.449</td></tr>
-    <tr><td>3. Pred dobavo</td><td>40%</td><td>~15. julij 2026</td><td>&euro;21.932</td></tr>
-    <tr class="total"><td colspan="3">Skupaj Alfastreet (prototip)</td><td>&euro;54.830</td></tr>
+    <tr><td><span class="lang-sl">1. Ob naročilu</span><span class="lang-en">1. Upon order</span><span class="lang-hu">1. Megrendel&eacute;skor</span></td><td>30%</td><td><span class="lang-sl">1. maj 2026</span><span class="lang-en">1 May 2026</span><span class="lang-hu">2026. m&aacute;jus 1.</span></td><td>&euro;16.449</td></tr>
+    <tr><td><span class="lang-sl">2. Ob izdelavi mock-up</span><span class="lang-en">2. Upon mock-up completion</span><span class="lang-hu">2. A makett elk&eacute;sz&uuml;lt&eacute;kor</span></td><td>30%</td><td>~<span class="lang-sl">1. junij 2026</span><span class="lang-en">1 June 2026</span><span class="lang-hu">2026. j&uacute;nius 1.</span></td><td>&euro;16.449</td></tr>
+    <tr><td><span class="lang-sl">3. Pred dobavo</span><span class="lang-en">3. Before delivery</span><span class="lang-hu">3. &Aacute;tad&aacute;s el&odblac;tt</span></td><td>40%</td><td>~<span class="lang-sl">15. julij 2026</span><span class="lang-en">15 July 2026</span><span class="lang-hu">2026. j&uacute;lius 15.</span></td><td>&euro;21.932</td></tr>
+    <tr class="total"><td colspan="3"><span class="lang-sl">Skupaj Alfastreet (prototip)</span><span class="lang-en">Total Alfastreet (prototype)</span><span class="lang-hu">&Ouml;sszesen Alfastreet (protot&iacute;pus)</span></td><td>&euro;54.830</td></tr>
   </tbody>
 </table>
 
-<h2>2.3 Dodatna oprema &mdash; &euro;30.000</h2>
+<h2>2.3 <span class="lang-sl">Dodatna oprema &mdash; &euro;30.000</span><span class="lang-en">Additional equipment &mdash; &euro;30,000</span><span class="lang-hu">Kieg&eacute;sz&iacute;t&odblac; felszerel&eacute;s &mdash; &euro;30.000</span></h2>
 
-<p>Erika nakaže Alfastreet dodatnih <strong>&euro;30.000</strong> za nabavo in vgradnjo vse dodatne opreme (BOM seznam). Alfastreet naroči komponente in jih vgradi v okviru 12-tedenskega roka.</p>
+<p><span class="lang-sl">Erika nakaže Alfastreet dodatnih <strong>&euro;30.000</strong> za nabavo in vgradnjo vse dodatne opreme (BOM seznam). Alfastreet naroči komponente in jih vgradi v okviru 12-tedenskega roka.</span><span class="lang-en">Erika transfers an additional <strong>&euro;30,000</strong> to Alfastreet for procurement and installation of all additional equipment (BOM list). Alfastreet orders the components and installs them within the 12-week timeline.</span><span class="lang-hu">Erika tov&aacute;bbi <strong>&euro;30.000</strong> &ouml;sszeget utal az Alfastreetnek az &ouml;sszes kieg&eacute;sz&iacute;t&odblac; felszerel&eacute;s beszerz&eacute;s&eacute;re &eacute;s be&eacute;p&iacute;t&eacute;s&eacute;re (BOM lista). Az Alfastreet megrendeli az alkatr&eacute;szeket &eacute;s be&eacute;p&iacute;ti azokat a 12 hetes hat&aacute;rid&odblac;n bel&uuml;l.</span></p>
 
 <table>
-  <thead><tr><th>Komponenta</th><th>Cena (EUR)</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Komponenta</span><span class="lang-en">Component</span><span class="lang-hu">Komponens</span></th><th><span class="lang-sl">Cena (EUR)</span><span class="lang-en">Price (EUR)</span><span class="lang-hu">&Aacute;r (EUR)</span></th></tr></thead>
   <tbody>
     <tr><td>EcoFlow 10kWh Power Kit</td><td>9.797</td></tr>
     <tr><td>B&amp;O Beosound Stage</td><td>2.100</td></tr>
     <tr><td>Dometic TwinBoost 4000 (A/C)</td><td>2.099</td></tr>
     <tr><td>Corian Solid Surface</td><td>~2.000</td></tr>
     <tr><td>Elegance 2G Cut Short (WC)</td><td>1.672</td></tr>
-    <tr><td>Dometic NRX 130S (hladilnik)</td><td>1.529</td></tr>
-    <tr><td>Thule Awning (tenda)</td><td>1.500</td></tr>
-    <tr><td>Tiny Wash (pralno-su&scaron;ilni stroj)</td><td>1.239</td></tr>
+    <tr><td>Dometic NRX 130S (<span class="lang-sl">hladilnik</span><span class="lang-en">refrigerator</span><span class="lang-hu">h&udblac;t&odblac;szekr&eacute;ny</span>)</td><td>1.529</td></tr>
+    <tr><td>Thule Awning (<span class="lang-sl">tenda</span><span class="lang-en">awning</span><span class="lang-hu">napellenző</span>)</td><td>1.500</td></tr>
+    <tr><td>Tiny Wash (<span class="lang-sl">pralno-su&scaron;ilni stroj</span><span class="lang-en">washer-dryer</span><span class="lang-hu">mos&oacute;-sz&aacute;r&iacute;t&oacute; g&eacute;p</span>)</td><td>1.239</td></tr>
     <tr><td>EcoFlow 450W Solar &times; 2</td><td>1.198</td></tr>
     <tr><td>Dometic FanTastic 3100</td><td>699</td></tr>
-    <tr><td>Thetford pe&ccaron;ica 420</td><td>555</td></tr>
+    <tr><td>Thetford <span class="lang-sl">pe&ccaron;ica</span><span class="lang-en">oven</span><span class="lang-hu">s&uuml;t&odblac;</span> 420</td><td>555</td></tr>
     <tr><td>Grey Water Tank 78L</td><td>490</td></tr>
-    <tr><td>mebloJOGI leži&scaron;če</td><td>445</td></tr>
-    <tr><td>Mosavit mozaik (~3 m&sup2;)</td><td>244</td></tr>
+    <tr><td>mebloJOGI <span class="lang-sl">leži&scaron;če</span><span class="lang-en">mattress</span><span class="lang-hu">matrac</span></td><td>445</td></tr>
+    <tr><td>Mosavit <span class="lang-sl">mozaik</span><span class="lang-en">mosaic</span><span class="lang-hu">mozaik</span> (~3 m&sup2;)</td><td>244</td></tr>
     <tr><td>Water Tank 160L</td><td>200</td></tr>
     <tr><td>GoBoard PRO + Waterdrop filter</td><td>~280</td></tr>
-    <tr class="total"><td>Skupaj oprema</td><td>~&euro;26.047</td></tr>
-    <tr class="sub"><td>Rezerva za nepredvideno + drobni material</td><td>~&euro;3.953</td></tr>
-    <tr class="total"><td>Skupaj Erika &rarr; Alfastreet (oprema)</td><td>&euro;30.000</td></tr>
+    <tr class="total"><td><span class="lang-sl">Skupaj oprema</span><span class="lang-en">Total equipment</span><span class="lang-hu">&Ouml;sszesen felszerel&eacute;s</span></td><td>~&euro;26.047</td></tr>
+    <tr class="sub"><td><span class="lang-sl">Rezerva za nepredvideno + drobni material</span><span class="lang-en">Contingency reserve + minor materials</span><span class="lang-hu">V&aacute;ratlan k&ouml;lts&eacute;gek tartal&eacute;ka + apr&oacute; anyagok</span></td><td>~&euro;3.953</td></tr>
+    <tr class="total"><td><span class="lang-sl">Skupaj Erika &rarr; Alfastreet (oprema)</span><span class="lang-en">Total Erika &rarr; Alfastreet (equipment)</span><span class="lang-hu">&Ouml;sszesen Erika &rarr; Alfastreet (felszerel&eacute;s)</span></td><td>&euro;30.000</td></tr>
   </tbody>
 </table>
 
-<h2>2.4 Dokončanje &mdash; preostanek</h2>
+<h2>2.4 <span class="lang-sl">Dokončanje &mdash; preostanek</span><span class="lang-en">Completion &mdash; remaining balance</span><span class="lang-hu">Befejez&eacute;s &mdash; fennmarad&oacute; &ouml;sszeg</span></h2>
 
-<p>Ob dokončanju vozila (pred predajo) Erika plača &scaron;e <strong>preostanek do skupne vrednosti &euro;160.000</strong>:</p>
+<p><span class="lang-sl">Ob dokončanju vozila (pred predajo) Erika plača &scaron;e <strong>preostanek do skupne vrednosti &euro;160.000</strong>:</span><span class="lang-en">Upon vehicle completion (before handover), Erika pays the <strong>remaining balance up to a total value of &euro;160,000</strong>:</span><span class="lang-hu">A j&aacute;rm&udblac; elk&eacute;sz&uuml;ltekor (&aacute;tad&aacute;s el&odblac;tt) Erika kifizeti a <strong>fennmarad&oacute; &ouml;sszeget az &euro;160.000 teljes &eacute;rt&eacute;kig</strong>:</span></p>
 
 <table>
-  <thead><tr><th>Postavka</th><th>Znesek (neto)</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Postavka</span><span class="lang-en">Item</span><span class="lang-hu">T&eacute;tel</span></th><th><span class="lang-sl">Znesek (neto)</span><span class="lang-en">Amount (net)</span><span class="lang-hu">&Ouml;sszeg (nett&oacute;)</span></th></tr></thead>
   <tbody>
-    <tr><td>Vozilo od Robeta</td><td>&euro;55.000</td></tr>
-    <tr><td>Alfastreet prototip (ponudba 26/0004)</td><td>&euro;54.830</td></tr>
-    <tr><td>Oprema + drobni material</td><td>&euro;30.000</td></tr>
-    <tr class="total"><td>Skupaj investirano do sedaj</td><td>&euro;139.830</td></tr>
-    <tr><td>Preostanek (folija, plati&scaron;ča, pnevmatike, razno)</td><td>&euro;20.170</td></tr>
-    <tr class="total"><td>Skupna investicija demo vozilo</td><td>&euro;160.000</td></tr>
+    <tr><td><span class="lang-sl">Vozilo od Robeta</span><span class="lang-en">Vehicle from Robeta</span><span class="lang-hu">J&aacute;rm&udblac; a Robet&aacute;t&oacute;l</span></td><td>&euro;55.000</td></tr>
+    <tr><td><span class="lang-sl">Alfastreet prototip (ponudba 26/0004)</span><span class="lang-en">Alfastreet prototype (quotation 26/0004)</span><span class="lang-hu">Alfastreet protot&iacute;pus (aj&aacute;nlat 26/0004)</span></td><td>&euro;54.830</td></tr>
+    <tr><td><span class="lang-sl">Oprema + drobni material</span><span class="lang-en">Equipment + minor materials</span><span class="lang-hu">Felszerel&eacute;s + apr&oacute; anyagok</span></td><td>&euro;30.000</td></tr>
+    <tr class="total"><td><span class="lang-sl">Skupaj investirano do sedaj</span><span class="lang-en">Total invested to date</span><span class="lang-hu">&Ouml;sszesen befektetve eddig</span></td><td>&euro;139.830</td></tr>
+    <tr><td><span class="lang-sl">Preostanek (folija, plati&scaron;ča, pnevmatike, razno)</span><span class="lang-en">Remainder (wrap, wheels, tyres, miscellaneous)</span><span class="lang-hu">Marad&eacute;k (f&oacute;lia, felni, gumiabroncs, egy&eacute;b)</span></td><td>&euro;20.170</td></tr>
+    <tr class="total"><td><span class="lang-sl">Skupna investicija demo vozilo</span><span class="lang-en">Total investment demo vehicle</span><span class="lang-hu">&Ouml;sszes befektet&eacute;s dem&oacute; j&aacute;rm&udblac;</span></td><td>&euro;160.000</td></tr>
   </tbody>
 </table>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>3. Homologacija v Sloveniji</h1>
+<h1>3. <span class="lang-sl">Homologacija v Sloveniji</span><span class="lang-en">Homologation in Slovenia</span><span class="lang-hu">Homolig&aacute;ci&oacute; Szlov&eacute;ni&aacute;ban</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
-<p>Vozilo ima <strong>nepopoln COC</strong> (incomplete &mdash; koda XC1). Po predelavi v bivalno vozilo je potrebna <strong>posamična odobritev dodelanega vozila</strong> (individual approval).</p>
+<p><span class="lang-sl">Vozilo ima <strong>nepopoln COC</strong> (incomplete &mdash; koda XC1). Po predelavi v bivalno vozilo je potrebna <strong>posamična odobritev dodelanega vozila</strong> (individual approval).</span><span class="lang-en">The vehicle has an <strong>incomplete COC</strong> (code XC1). After conversion to a motorhome, an <strong>individual vehicle approval</strong> is required.</span><span class="lang-hu">A j&aacute;rm&udblac; <strong>hi&aacute;nyos COC-val</strong> rendelkezik (k&oacute;d: XC1). A lak&oacute;aut&oacute;v&aacute; t&ouml;rt&eacute;n&odblac; &aacute;talak&iacute;t&aacute;s ut&aacute;n <strong>egyedi j&aacute;rm&udblac;-j&oacute;v&aacute;hagy&aacute;s</strong> sz&uuml;ks&eacute;ges.</span></p>
 
-<h2>3.1 Postopek</h2>
+<h2>3.1 <span class="lang-sl">Postopek</span><span class="lang-en">Procedure</span><span class="lang-hu">Elj&aacute;r&aacute;s</span></h2>
 
 <div class="step">
   <div class="step-num">1</div>
   <div class="step-content">
-    <strong>Priprava dokumentacije:</strong> originalni MB COC (1. stopnja), Listina o skladnosti (OBR RTI 764 + 765), tehnično poročilo o predelavi z vsemi prilogami (risbe, izračuni, certifikati).
+    <span class="lang-sl"><strong>Priprava dokumentacije:</strong> originalni MB COC (1. stopnja), Listina o skladnosti (OBR RTI 764 + 765), tehnično poročilo o predelavi z vsemi prilogami (risbe, izračuni, certifikati).</span><span class="lang-en"><strong>Document preparation:</strong> original MB COC (stage 1), Certificate of Conformity (OBR RTI 764 + 765), technical conversion report with all annexes (drawings, calculations, certificates).</span><span class="lang-hu"><strong>Dokument&aacute;ci&oacute; el&odblac;k&eacute;sz&iacute;t&eacute;se:</strong> eredeti MB COC (1. szint), Megfelel&odblac;s&eacute;gi nyilatkozat (OBR RTI 764 + 765), m&udblac;szaki jelent&eacute;s az &aacute;talak&iacute;t&aacute;sr&oacute;l az &ouml;sszes mell&eacute;klettel (rajzok, sz&aacute;m&iacute;t&aacute;sok, tan&uacute;s&iacute;tv&aacute;nyok).</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">2</div>
   <div class="step-content">
-    <strong>Posebna dokumentacija za bivalno vozilo:</strong> dokazilo o lastni&scaron;tvu, seznam vgrajene opreme (kuhalna plo&scaron;ča, umivalnik, vodna sistema), certifikat za sede&zcaron;e s 3-točkovnimi pasovi + sidrne točke, certifikat inštalaterja za plinsko in&scaron;talacijo, certifikat za elektro in&scaron;talacijo.
+    <span class="lang-sl"><strong>Posebna dokumentacija za bivalno vozilo:</strong> dokazilo o lastni&scaron;tvu, seznam vgrajene opreme (kuhalna plo&scaron;ča, umivalnik, vodna sistema), certifikat za sede&zcaron;e s 3-točkovnimi pasovi + sidrne točke, certifikat inštalaterja za plinsko in&scaron;talacijo, certifikat za elektro in&scaron;talacijo.</span><span class="lang-en"><strong>Special motorhome documentation:</strong> proof of ownership, list of installed equipment (cooktop, sink, water systems), certificate for seats with 3-point seatbelts + anchor points, gas installation certificate, electrical installation certificate.</span><span class="lang-hu"><strong>Speci&aacute;lis lak&oacute;aut&oacute; dokument&aacute;ci&oacute;:</strong> tulajdonjog igazol&aacute;sa, be&eacute;p&iacute;tett berendez&eacute;sek list&aacute;ja (f&odblac;z&odblac;lap, mosd&oacute;, v&iacute;zrendszerek), &uuml;l&eacute;sek tan&uacute;s&iacute;tv&aacute;nya 3 pontos biztons&aacute;gi &ouml;vekkel + r&ouml;gz&iacute;t&eacute;si pontok, g&aacute;zszerel&eacute;si tan&uacute;s&iacute;tv&aacute;ny, elektromos szerel&eacute;si tan&uacute;s&iacute;tv&aacute;ny.</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">3</div>
   <div class="step-content">
-    <strong>Vlo&zcaron;itev vloge</strong> pri <strong>RTI d.o.o.</strong> (Maribor, tel. +386 2 450 26 15) ali <strong>AMZS</strong> (Ljubljana). RTI je bolj specializiran za to vrsto predelav.
+    <span class="lang-sl"><strong>Vlo&zcaron;itev vloge</strong> pri <strong>RTI d.o.o.</strong> (Maribor, tel. +386 2 450 26 15) ali <strong>AMZS</strong> (Ljubljana). RTI je bolj specializiran za to vrsto predelav.</span><span class="lang-en"><strong>Application submission</strong> to <strong>RTI d.o.o.</strong> (Maribor, tel. +386 2 450 26 15) or <strong>AMZS</strong> (Ljubljana). RTI is more specialised for this type of conversion.</span><span class="lang-hu"><strong>K&eacute;relem beny&uacute;jt&aacute;sa</strong> az <strong>RTI d.o.o.</strong>-hoz (Maribor, tel. +386 2 450 26 15) vagy az <strong>AMZS</strong>-hez (Ljubljana). Az RTI jobban specializ&aacute;l&oacute;dott az ilyen t&iacute;pus&uacute; &aacute;talak&iacute;t&aacute;sokra.</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">4</div>
   <div class="step-content">
-    <strong>Pregled vozila:</strong> fizi&ccaron;ni pregled, preverjanje skladnosti s predpisi (po&zcaron;arna varnost, pasovi, sidri&scaron;ča, vodotesnost).
+    <span class="lang-sl"><strong>Pregled vozila:</strong> fizi&ccaron;ni pregled, preverjanje skladnosti s predpisi (po&zcaron;arna varnost, pasovi, sidri&scaron;ča, vodotesnost).</span><span class="lang-en"><strong>Vehicle inspection:</strong> physical inspection, verification of regulatory compliance (fire safety, seatbelts, anchor points, watertightness).</span><span class="lang-hu"><strong>J&aacute;rm&udblac;vizsg&aacute;lat:</strong> fizikai vizsg&aacute;lat, jogszab&aacute;lyi megfelel&odblac;s&eacute;g ellen&odblac;rz&eacute;se (t&udblac;zbiztons&aacute;g, biztons&aacute;gi &ouml;vek, r&ouml;gz&iacute;t&eacute;si pontok, v&iacute;z&aacute;ll&oacute;s&aacute;g).</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">5</div>
   <div class="step-content">
-    <strong>AVP izda certifikat</strong> posamične odobritve. S tem je vozilo primerno za registracijo.
+    <span class="lang-sl"><strong>AVP izda certifikat</strong> posamične odobritve. S tem je vozilo primerno za registracijo.</span><span class="lang-en"><strong>AVP issues the individual approval certificate.</strong> The vehicle is then eligible for registration.</span><span class="lang-hu"><strong>Az AVP ki&aacute;ll&iacute;tja az egyedi j&oacute;v&aacute;hagy&aacute;si tan&uacute;s&iacute;tv&aacute;nyt.</strong> Ezt k&ouml;vet&odblac;en a j&aacute;rm&udblac; regisztr&aacute;lhat&oacute;.</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">6</div>
   <div class="step-content">
-    <strong>DMV (davek na motorna vozila)</strong> &mdash; plačilo ob prvi registraciji v SLO. Odvisno od CO&sup2; emisij in prostornine motorja.
+    <span class="lang-sl"><strong>DMV (davek na motorna vozila)</strong> &mdash; plačilo ob prvi registraciji v SLO. Odvisno od CO&sup2; emisij in prostornine motorja.</span><span class="lang-en"><strong>DMV (motor vehicle tax)</strong> &mdash; payable upon first registration in Slovenia. Depends on CO&sup2; emissions and engine displacement.</span><span class="lang-hu"><strong>DMV (g&eacute;pj&aacute;rm&udblac;ad&oacute;)</strong> &mdash; az els&odblac; szlov&eacute;niai regisztr&aacute;ci&oacute;kor fizetend&odblac;. A CO&sup2;-kibocs&aacute;t&aacute;st&oacute;l &eacute;s a hengerűrtartalomtól f&uuml;gg.</span>
   </div>
 </div>
 <div class="step">
   <div class="step-num">7</div>
   <div class="step-content">
-    <strong>Tehnični pregled + registracija</strong> pri AMZS.
+    <span class="lang-sl"><strong>Tehnični pregled + registracija</strong> pri AMZS.</span><span class="lang-en"><strong>Technical inspection + registration</strong> at AMZS.</span><span class="lang-hu"><strong>M&udblac;szaki vizsg&aacute;lat + regisztr&aacute;ci&oacute;</strong> az AMZS-n&eacute;l.</span>
   </div>
 </div>
 
 <div class="info-box">
-  <div class="label">Za Alfastreet</div>
-  Alfastreet mora zagotoviti vso tehnično dokumentacijo: risbe, material specifikacije, poročila o inštalacijah (elektro, vodo, plin). <strong>Certifikati za sede&zcaron;e + pasove</strong> so ključni &mdash; RTI lahko naredi izračun sidrnih točk.
+  <div class="label"><span class="lang-sl">Za Alfastreet</span><span class="lang-en">For Alfastreet</span><span class="lang-hu">Az Alfastreet sz&aacute;m&aacute;ra</span></div>
+  <span class="lang-sl">Alfastreet mora zagotoviti vso tehnično dokumentacijo: risbe, material specifikacije, poročila o inštalacijah (elektro, vodo, plin). <strong>Certifikati za sede&zcaron;e + pasove</strong> so ključni &mdash; RTI lahko naredi izračun sidrnih točk.</span><span class="lang-en">Alfastreet must provide all technical documentation: drawings, material specifications, installation reports (electrical, plumbing, gas). <strong>Seat and seatbelt certificates</strong> are critical &mdash; RTI can calculate the anchor points.</span><span class="lang-hu">Az Alfastreetnek biztos&iacute;tania kell a teljes m&udblac;szaki dokument&aacute;ci&oacute;t: rajzok, anyagle&iacute;r&aacute;sok, szerel&eacute;si jelent&eacute;sek (elektromos, v&iacute;z, g&aacute;z). Az <strong>&uuml;l&eacute;sek &eacute;s biztons&aacute;gi &ouml;vek tan&uacute;s&iacute;tv&aacute;nyai</strong> kulcsfontoss&aacute;g&uacute;ak &mdash; az RTI kisz&aacute;m&iacute;thatja a r&ouml;gz&iacute;t&eacute;si pontokat.</span>
 </div>
 
 <div class="warn-box">
-  <div class="label">Pozor &mdash; registracija na HU podjetje</div>
-  Če je vozilo v lasti GY&Ouml;REI Kft. (HU), se lahko registrira v Sloveniji začasno (za čas uporabe/sajmov) ali pa se lastni&scaron;tvo prenese na Glam-van d.o.o. pred registracijo. Alternativa: homologacija v HU (enostavneje, če je vozilo na HU podjetje). <strong>Priporočam posvet z RTI glede optimalne poti.</strong>
+  <div class="label"><span class="lang-sl">Pozor &mdash; registracija na HU podjetje</span><span class="lang-en">Attention &mdash; registration under HU company</span><span class="lang-hu">Figyelem &mdash; regisztr&aacute;ci&oacute; magyar c&eacute;gre</span></div>
+  <span class="lang-sl">Če je vozilo v lasti GY&Ouml;REI Kft. (HU), se lahko registrira v Sloveniji začasno (za čas uporabe/sajmov) ali pa se lastni&scaron;tvo prenese na Glam-van d.o.o. pred registracijo. Alternativa: homologacija v HU (enostavneje, če je vozilo na HU podjetje). <strong>Priporočam posvet z RTI glede optimalne poti.</strong></span><span class="lang-en">If the vehicle is owned by GY&Ouml;REI Kft. (HU), it can be temporarily registered in Slovenia (for use/fairs) or ownership can be transferred to Glam-van d.o.o. before registration. Alternative: homologation in Hungary (simpler if the vehicle belongs to an HU company). <strong>We recommend consulting RTI regarding the optimal route.</strong></span><span class="lang-hu">Ha a j&aacute;rm&udblac; a GY&Ouml;REI Kft. (HU) tulajdon&aacute;ban van, Szlov&eacute;ni&aacute;ban ideiglenesen regisztr&aacute;lhat&oacute; (haszn&aacute;latra/v&aacute;s&aacute;rokra), vagy a tulajdonjog a regisztr&aacute;ci&oacute; el&odblac;tt &aacute;truh&aacute;zhat&oacute; a Glam-van d.o.o.-ra. Alternat&iacute;va: homolig&aacute;ci&oacute; Magyarorsz&aacute;gon (egyszer&udblac;bb, ha a j&aacute;rm&udblac; magyar c&eacute;gre van). <strong>Javasoljuk az RTI-vel val&oacute; konzult&aacute;ci&oacute;t az optim&aacute;lis &uacute;tvonalr&oacute;l.</strong></span>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>4. Uporaba demo vozila (avg&ndash;dec 2026)</h1>
+<h1>4. <span class="lang-sl">Uporaba demo vozila (avg&ndash;dec 2026)</span><span class="lang-en">Demo vehicle usage (Aug&ndash;Dec 2026)</span><span class="lang-hu">A dem&oacute; j&aacute;rm&udblac; haszn&aacute;lata (aug.&ndash;dec. 2026)</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
 <div class="timeline">
-  <div class="tl-item"><div class="tl-date">28. avg &ndash; 6. sep</div><div class="tl-desc"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; svetovna premiera ANANYA GlamperVan. Nabiranje naročil.</div></div>
-  <div class="tl-item"><div class="tl-date">sep &ndash; nov</div><div class="tl-desc"><strong>European Road Tour</strong> &mdash; demo vozilo potuje po Evropi. Micro-eventi, foto/video produkcija, testne vo&zcaron;nje za potencialne kupce.</div></div>
-  <div class="tl-item"><div class="tl-date">dec 2026</div><div class="tl-desc"><strong>Prodaja demo vozila</strong> za ~&euro;210.000. Glam-van d.o.o. izda račun kupcu.</div></div>
+  <div class="tl-item"><div class="tl-date">28. aug &ndash; 6. sep</div><div class="tl-desc"><span class="lang-sl"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; svetovna premiera ANANYA GlamperVan. Nabiranje naročil.</span><span class="lang-en"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; world premiere of the ANANYA GlamperVan. Collecting orders.</span><span class="lang-hu"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; az ANANYA GlamperVan vil&aacute;gpremierje. Megrendel&eacute;sek gy&udblac;jt&eacute;se.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">sep &ndash; nov</span><span class="lang-en">Sep &ndash; Nov</span><span class="lang-hu">szept. &ndash; nov.</span></div><div class="tl-desc"><span class="lang-sl"><strong>European Road Tour</strong> &mdash; demo vozilo potuje po Evropi. Micro-eventi, foto/video produkcija, testne vo&zcaron;nje za potencialne kupce.</span><span class="lang-en"><strong>European Road Tour</strong> &mdash; demo vehicle travels across Europe. Micro-events, photo/video production, test drives for potential buyers.</span><span class="lang-hu"><strong>European Road Tour</strong> &mdash; a dem&oacute; j&aacute;rm&udblac; Eur&oacute;p&aacute;ban turnézik. Mikroesem&eacute;nyek, f&eacute;nyk&eacute;p-/videógy&aacute;rt&aacute;s, tesztvezetés potenci&aacute;lis vev&odblac;knek.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">dec 2026</span><span class="lang-en">Dec 2026</span><span class="lang-hu">2026. dec.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Prodaja demo vozila</strong> za ~&euro;210.000. Glam-van d.o.o. izda račun kupcu.</span><span class="lang-en"><strong>Sale of demo vehicle</strong> for ~&euro;210,000. Glam-van d.o.o. issues the invoice to the buyer.</span><span class="lang-hu"><strong>A dem&oacute; j&aacute;rm&udblac; &eacute;rt&eacute;kes&iacute;t&eacute;se</strong> ~&euro;210.000-&eacute;rt. A Glam-van d.o.o. &aacute;ll&iacute;tja ki a sz&aacute;ml&aacute;t a vev&odblac; r&eacute;sz&eacute;re.</span></div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>5. Prodaja demo vozila &amp; vračilo investicije</h1>
+<h1>5. <span class="lang-sl">Prodaja demo vozila &amp; vračilo investicije</span><span class="lang-en">Demo vehicle sale &amp; investment return</span><span class="lang-hu">A dem&oacute; j&aacute;rm&udblac; &eacute;rt&eacute;kes&iacute;t&eacute;se &eacute;s a befektet&eacute;s visszat&eacute;r&iacute;t&eacute;se</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
 <table>
-  <thead><tr><th>Postavka</th><th>Znesek</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Postavka</span><span class="lang-en">Item</span><span class="lang-hu">T&eacute;tel</span></th><th><span class="lang-sl">Znesek</span><span class="lang-en">Amount</span><span class="lang-hu">&Ouml;sszeg</span></th></tr></thead>
   <tbody>
-    <tr><td>Prodajna cena demo vozila</td><td>&euro;210.000</td></tr>
-    <tr class="section"><td colspan="2">Razdelitev:</td></tr>
-    <tr><td><strong>Vračilo Eriki</strong> (celotna investicija)</td><td>&euro;160.000</td></tr>
-    <tr><td>Preostanek &rarr; Glam-van operativni sklad</td><td>&euro;50.000</td></tr>
-    <tr class="sub"><td>&emsp;Marketing &amp; sejmi</td><td>~&euro;30.000</td></tr>
-    <tr class="sub"><td>&emsp;Garancijski sklad (popravila, napake)</td><td>~&euro;20.000</td></tr>
-    <tr class="total"><td>Skupaj</td><td>&euro;210.000</td></tr>
+    <tr><td><span class="lang-sl">Prodajna cena demo vozila</span><span class="lang-en">Demo vehicle sale price</span><span class="lang-hu">A dem&oacute; j&aacute;rm&udblac; elad&aacute;si &aacute;ra</span></td><td>&euro;210.000</td></tr>
+    <tr class="section"><td colspan="2"><span class="lang-sl">Razdelitev:</span><span class="lang-en">Distribution:</span><span class="lang-hu">Eloszt&aacute;s:</span></td></tr>
+    <tr><td><strong><span class="lang-sl">Vračilo Eriki</span><span class="lang-en">Return to Erika</span><span class="lang-hu">Visszat&eacute;r&iacute;t&eacute;s Erik&aacute;nak</span></strong> (<span class="lang-sl">celotna investicija</span><span class="lang-en">full investment</span><span class="lang-hu">teljes befektet&eacute;s</span>)</td><td>&euro;160.000</td></tr>
+    <tr><td><span class="lang-sl">Preostanek &rarr; Glam-van operativni sklad</span><span class="lang-en">Remainder &rarr; Glam-van operational fund</span><span class="lang-hu">Marad&eacute;k &rarr; Glam-van oper&aacute;ci&oacute;s alap</span></td><td>&euro;50.000</td></tr>
+    <tr class="sub"><td>&emsp;<span class="lang-sl">Marketing &amp; sejmi</span><span class="lang-en">Marketing &amp; fairs</span><span class="lang-hu">Marketing &eacute;s v&aacute;s&aacute;rok</span></td><td>~&euro;30.000</td></tr>
+    <tr class="sub"><td>&emsp;<span class="lang-sl">Garancijski sklad (popravila, napake)</span><span class="lang-en">Warranty fund (repairs, defects)</span><span class="lang-hu">Garancialap (jav&iacute;t&aacute;sok, hib&aacute;k)</span></td><td>~&euro;20.000</td></tr>
+    <tr class="total"><td><span class="lang-sl">Skupaj</span><span class="lang-en">Total</span><span class="lang-hu">&Ouml;sszesen</span></td><td>&euro;210.000</td></tr>
   </tbody>
 </table>
 
 <div class="info-box">
-  <div class="label">Garancija &amp; popravila</div>
-  <strong>Alfastreet nosi garancijo na pohi&scaron;tvo</strong> (njihov stro&scaron;ek &mdash; del ponudbe).<br>
+  <div class="label"><span class="lang-sl">Garancija &amp; popravila</span><span class="lang-en">Warranty &amp; repairs</span><span class="lang-hu">Garancia &eacute;s jav&iacute;t&aacute;sok</span></div>
+  <span class="lang-sl"><strong>Alfastreet nosi garancijo na pohi&scaron;tvo</strong> (njihov stro&scaron;ek &mdash; del ponudbe).<br>
   <strong>Druge napake</strong> (oprema, elektro, vodovod, mehanika) se popravljajo iz garancijskega sklada (&euro;20k).<br>
-  Alfastreet izvede popravila kot izvajalec &mdash; stro&scaron;ek iz sklada.
+  Alfastreet izvede popravila kot izvajalec &mdash; stro&scaron;ek iz sklada.</span><span class="lang-en"><strong>Alfastreet bears the warranty on furniture</strong> (their cost &mdash; part of the quotation).<br>
+  <strong>Other defects</strong> (equipment, electrical, plumbing, mechanical) are repaired from the warranty fund (&euro;20k).<br>
+  Alfastreet performs the repairs as contractor &mdash; cost from the fund.</span><span class="lang-hu"><strong>Az Alfastreet viseli a b&uacute;torokra vonatkoz&oacute; garanci&aacute;t</strong> (az &odblac; k&ouml;lts&eacute;g&eacute;re &mdash; az aj&aacute;nlat r&eacute;sze).<br>
+  <strong>Egy&eacute;b hib&aacute;k</strong> (berendez&eacute;sek, elektromos, v&iacute;zvezet&eacute;k, mechanika) a garancialapb&oacute;l ker&uuml;lnek jav&iacute;t&aacute;sra (&euro;20k).<br>
+  Az Alfastreet v&eacute;gzi a jav&iacute;t&aacute;sokat v&aacute;llalkoz&oacute;k&eacute;nt &mdash; a k&ouml;lts&eacute;g az alapb&oacute;l.</span>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>6. Faza 2 &mdash; Prva 2 serijska vozila (jan 2027)</h1>
+<h1>6. <span class="lang-sl">Faza 2 &mdash; Prva 2 serijska vozila (jan 2027)</span><span class="lang-en">Phase 2 &mdash; First 2 serial vehicles (Jan 2027)</span><span class="lang-hu">2. f&aacute;zis &mdash; Az els&odblac; 2 sorozatgy&aacute;rt&aacute;s&uacute; j&aacute;rm&udblac; (2027. jan.)</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
-<p><strong>Erika in Rok vsak naročita po eno vozilo.</strong> Gradnja poteka simultano &mdash; to je začetek serijske proizvodnje.</p>
+<p><span class="lang-sl"><strong>Erika in Rok vsak naročita po eno vozilo.</strong> Gradnja poteka simultano &mdash; to je začetek serijske proizvodnje.</span><span class="lang-en"><strong>Erika and Rok each order one vehicle.</strong> Construction proceeds simultaneously &mdash; this marks the start of serial production.</span><span class="lang-hu"><strong>Erika &eacute;s Rok egyar&aacute;nt megrendel egy-egy j&aacute;rm&udblac;vet.</strong> Az &eacute;p&iacute;t&eacute;s p&aacute;rhuzamosan halad &mdash; ez jelenti a sorozatgy&aacute;rt&aacute;s kezdet&eacute;t.</span></p>
 
-<h2>6.1 Stro&scaron;ki serijskega vozila</h2>
+<h2>6.1 <span class="lang-sl">Stro&scaron;ki serijskega vozila</span><span class="lang-en">Serial vehicle costs</span><span class="lang-hu">A sorozatgy&aacute;rt&aacute;s&uacute; j&aacute;rm&udblac; k&ouml;lts&eacute;gei</span></h2>
 
 <table>
-  <thead><tr><th>Postavka</th><th>Znesek (neto)</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Postavka</span><span class="lang-en">Item</span><span class="lang-hu">T&eacute;tel</span></th><th><span class="lang-sl">Znesek (neto)</span><span class="lang-en">Amount (net)</span><span class="lang-hu">&Ouml;sszeg (nett&oacute;)</span></th></tr></thead>
   <tbody>
-    <tr><td>Osnovno vozilo &mdash; Tourne Mobil (Sprinter + izolacija + talno ogrevanje + tlaki)</td><td>&euro;60.000</td></tr>
-    <tr><td>Alfastreet &mdash; notranjost, monta&zcaron;a opreme, fini&scaron;ing, folija</td><td>&euro;35.000</td></tr>
-    <tr><td>Oprema &amp; komponente (BOM)</td><td>&euro;26.000</td></tr>
-    <tr><td>Offroad plati&scaron;ča + pnevmatike + razno</td><td>&euro;19.000</td></tr>
-    <tr class="total"><td>Skupaj proizvodni stro&scaron;ek / vozilo</td><td>&euro;140.000</td></tr>
+    <tr><td><span class="lang-sl">Osnovno vozilo &mdash; Tourne Mobil (Sprinter + izolacija + talno ogrevanje + tlaki)</span><span class="lang-en">Base vehicle &mdash; Tourne Mobil (Sprinter + insulation + underfloor heating + flooring)</span><span class="lang-hu">Alapj&aacute;rm&udblac; &mdash; Tourne Mobil (Sprinter + szigetel&eacute;s + padl&oacute;f&udblac;t&eacute;s + padl&oacute;burkolat)</span></td><td>&euro;60.000</td></tr>
+    <tr><td><span class="lang-sl">Alfastreet &mdash; notranjost, monta&zcaron;a opreme, fini&scaron;ing, folija</span><span class="lang-en">Alfastreet &mdash; interior, equipment installation, finishing, wrap</span><span class="lang-hu">Alfastreet &mdash; bels&odblac; t&eacute;r, berendez&eacute;s-szerel&eacute;s, befejez&eacute;s, f&oacute;lia</span></td><td>&euro;35.000</td></tr>
+    <tr><td><span class="lang-sl">Oprema &amp; komponente (BOM)</span><span class="lang-en">Equipment &amp; components (BOM)</span><span class="lang-hu">Felszerel&eacute;s &eacute;s alkatr&eacute;szek (BOM)</span></td><td>&euro;26.000</td></tr>
+    <tr><td><span class="lang-sl">Offroad plati&scaron;ča + pnevmatike + razno</span><span class="lang-en">Offroad wheels + tyres + miscellaneous</span><span class="lang-hu">Offroad felnik + gumiabroncsok + egy&eacute;b</span></td><td>&euro;19.000</td></tr>
+    <tr class="total"><td><span class="lang-sl">Skupaj proizvodni stro&scaron;ek / vozilo</span><span class="lang-en">Total production cost / vehicle</span><span class="lang-hu">&Ouml;sszes gy&aacute;rt&aacute;si k&ouml;lts&eacute;g / j&aacute;rm&udblac;</span></td><td>&euro;140.000</td></tr>
   </tbody>
 </table>
 
-<h2>6.2 Postopek naročila</h2>
+<h2>6.2 <span class="lang-sl">Postopek naročila</span><span class="lang-en">Order procedure</span><span class="lang-hu">Megrendel&eacute;si elj&aacute;r&aacute;s</span></h2>
 
-<p><strong>Erika plača Alfastreet v 3 obrokih</strong> za izdelavo njenega vozila (brez provizije &mdash; po nabavni ceni). Alfastreet koordinira celoten proces vklj. z naročilom pri Tourne Mobil.</p>
+<p><span class="lang-sl"><strong>Erika plača Alfastreet v 3 obrokih</strong> za izdelavo njenega vozila (brez provizije &mdash; po nabavni ceni). Alfastreet koordinira celoten proces vklj. z naročilom pri Tourne Mobil.</span><span class="lang-en"><strong>Erika pays Alfastreet in 3 instalments</strong> for the manufacture of her vehicle (no commission &mdash; at cost price). Alfastreet coordinates the entire process incl. the order with Tourne Mobil.</span><span class="lang-hu"><strong>Erika 3 r&eacute;szletben fizet az Alfastreetnek</strong> a j&aacute;rm&udblac;ve gy&aacute;rt&aacute;s&aacute;&eacute;rt (jutal&eacute;k n&eacute;lk&uuml;l &mdash; &ouml;nk&ouml;lts&eacute;gi &aacute;ron). Az Alfastreet koordin&aacute;lja a teljes folyamatot, bele&eacute;rtve a Tourne Mobiln&aacute;l t&ouml;rt&eacute;n&odblac; megrendel&eacute;st is.</span></p>
 
-<p><strong>Rok / Glam-van d.o.o.</strong> naroči svoje vozilo po enakem postopku &mdash; januar 2027, dostava ~april 2027.</p>
+<p><span class="lang-sl"><strong>Rok / Glam-van d.o.o.</strong> naroči svoje vozilo po enakem postopku &mdash; januar 2027, dostava ~april 2027.</span><span class="lang-en"><strong>Rok / Glam-van d.o.o.</strong> orders his vehicle following the same procedure &mdash; January 2027, delivery ~April 2027.</span><span class="lang-hu"><strong>Rok / Glam-van d.o.o.</strong> ugyanezen elj&aacute;r&aacute;ssal rendeli meg a j&aacute;rm&udblac;v&eacute;t &mdash; 2027. janu&aacute;r, sz&aacute;ll&iacute;t&aacute;s ~2027. &aacute;prilis.</span></p>
 
-<h2>6.3 Tourne Mobil &mdash; dobavna veriga (serija)</h2>
+<h2>6.3 Tourne Mobil &mdash; <span class="lang-sl">dobavna veriga (serija)</span><span class="lang-en">supply chain (serial)</span><span class="lang-hu">ell&aacute;t&aacute;si l&aacute;nc (sorozat)</span></h2>
 
 <div class="step">
   <div class="step-num">1</div>
-  <div class="step-content"><strong>Tourne Mobil</strong> kupi MB Sprinter (MB certified bodybuilder), vgradi izolacijo, talno ogrevanje in talne obloge.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Tourne Mobil</strong> kupi MB Sprinter (MB certified bodybuilder), vgradi izolacijo, talno ogrevanje in talne obloge.</span><span class="lang-en"><strong>Tourne Mobil</strong> purchases the MB Sprinter (MB certified bodybuilder), installs insulation, underfloor heating, and flooring.</span><span class="lang-hu"><strong>A Tourne Mobil</strong> megv&aacute;s&aacute;rolja az MB Sprintert (MB minős&iacute;tett fel&eacute;p&iacute;tm&eacute;ny-gy&aacute;rt&oacute;), be&eacute;p&iacute;ti a szigetel&eacute;st, a padl&oacute;f&udblac;t&eacute;st &eacute;s a padl&oacute;burkolatot.</span></div>
 </div>
 <div class="step">
   <div class="step-num">2</div>
-  <div class="step-content"><strong>Alfastreet</strong> prevzame pripravljeno vozilo za &euro;60k in izvede kompletno gradnjo notranjosti + montažo opreme.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Alfastreet</strong> prevzame pripravljeno vozilo za &euro;60k in izvede kompletno gradnjo notranjosti + montažo opreme.</span><span class="lang-en"><strong>Alfastreet</strong> takes over the prepared vehicle for &euro;60k and performs the complete interior build + equipment installation.</span><span class="lang-hu"><strong>Az Alfastreet</strong> &aacute;tveszi az el&odblac;k&eacute;sz&iacute;tett j&aacute;rm&udblac;vet &euro;60k-&eacute;rt &eacute;s elv&eacute;gzi a teljes bels&odblac; &eacute;p&iacute;t&eacute;st + berendez&eacute;s-szerel&eacute;st.</span></div>
 </div>
 <div class="step">
   <div class="step-num">3</div>
-  <div class="step-content"><strong>Glam-van</strong> opravi končno kontrolo kakovosti, brand compliance, prevzemni test.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Glam-van</strong> opravi končno kontrolo kakovosti, brand compliance, prevzemni test.</span><span class="lang-en"><strong>Glam-van</strong> performs final quality control, brand compliance check, and acceptance test.</span><span class="lang-hu"><strong>A Glam-van</strong> elv&eacute;gzi a v&eacute;gs&odblac; min&odblac;s&eacute;gellen&odblac;rz&eacute;st, a m&aacute;rkamegfelel&odblac;s&eacute;gi vizsg&aacute;latot &eacute;s az &aacute;tv&eacute;teli tesztet.</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>7. Delitev dobička (serija)</h1>
+<h1>7. <span class="lang-sl">Delitev dobička (serija)</span><span class="lang-en">Profit sharing (serial)</span><span class="lang-hu">Nyeres&eacute;gfeloszt&aacute;s (sorozat)</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
-<h2>7.1 Formula</h2>
+<h2>7.1 <span class="lang-sl">Formula</span><span class="lang-en">Formula</span><span class="lang-hu">K&eacute;plet</span></h2>
 
 <div class="info-box">
-  <div class="label">Izračun na vozilo</div>
-  <strong>Neto prodajna cena:</strong> &euro;225.000<br>
-  <strong>Neposredni proizvodni stro&scaron;ki:</strong> &minus;&euro;140.000<br>
-  <strong>Bruto mar&zcaron;a:</strong> &euro;85.000<br><br>
-  <strong>Provizija za pridobitev kupca:</strong> &minus;&euro;20.000 (fiksna &mdash; kdor proda: Glam-van, Erika ali Alfastreet)<br>
-  <strong>Dobiček za delitev:</strong> &euro;65.000
+  <div class="label"><span class="lang-sl">Izračun na vozilo</span><span class="lang-en">Calculation per vehicle</span><span class="lang-hu">Sz&aacute;m&iacute;t&aacute;s j&aacute;rm&udblac;venk&eacute;nt</span></div>
+  <strong><span class="lang-sl">Neto prodajna cena</span><span class="lang-en">Net sale price</span><span class="lang-hu">Nett&oacute; elad&aacute;si &aacute;r</span>:</strong> &euro;225.000<br>
+  <strong><span class="lang-sl">Neposredni proizvodni stro&scaron;ki</span><span class="lang-en">Direct production costs</span><span class="lang-hu">K&ouml;zvetlen gy&aacute;rt&aacute;si k&ouml;lts&eacute;gek</span>:</strong> &minus;&euro;140.000<br>
+  <strong><span class="lang-sl">Bruto mar&zcaron;a</span><span class="lang-en">Gross margin</span><span class="lang-hu">Brutt&oacute; &aacute;rr&eacute;s</span>:</strong> &euro;85.000<br><br>
+  <strong><span class="lang-sl">Provizija za pridobitev kupca</span><span class="lang-en">Sales commission for acquiring the buyer</span><span class="lang-hu">Jutal&eacute;k a vev&odblac; megszerz&eacute;s&eacute;&eacute;rt</span>:</strong> &minus;&euro;20.000 (<span class="lang-sl">fiksna &mdash; kdor proda: Glam-van, Erika ali Alfastreet</span><span class="lang-en">fixed &mdash; whoever sells: Glam-van, Erika, or Alfastreet</span><span class="lang-hu">fix &mdash; aki elad: Glam-van, Erika vagy Alfastreet</span>)<br>
+  <strong><span class="lang-sl">Dobiček za delitev</span><span class="lang-en">Profit for distribution</span><span class="lang-hu">Felosztand&oacute; nyeres&eacute;g</span>:</strong> &euro;65.000
 </div>
 
-<h2>7.2 Razdelitev dobička</h2>
+<h2>7.2 <span class="lang-sl">Razdelitev dobička</span><span class="lang-en">Profit distribution</span><span class="lang-hu">Nyeres&eacute;geloszt&aacute;s</span></h2>
 
 <table>
-  <thead><tr><th>Prejemnik</th><th>Delež</th><th>Znesek / vozilo</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Prejemnik</span><span class="lang-en">Recipient</span><span class="lang-hu">Kedvezm&eacute;nyezett</span></th><th><span class="lang-sl">Delež</span><span class="lang-en">Share</span><span class="lang-hu">Ar&aacute;ny</span></th><th><span class="lang-sl">Znesek / vozilo</span><span class="lang-en">Amount / vehicle</span><span class="lang-hu">&Ouml;sszeg / j&aacute;rm&udblac;</span></th></tr></thead>
   <tbody>
-    <tr><td>Provizija (kdor proda)</td><td>fiksna</td><td>&euro;20.000</td></tr>
-    <tr class="section"><td colspan="3">Neto dobiček &euro;65.000:</td></tr>
-    <tr><td><strong>Glam-van d.o.o.</strong> (IP, brand, prodaja, marketing)</td><td>75%</td><td>&euro;48.750</td></tr>
-    <tr><td><strong>Alfastreet</strong> (servis, distribucija, garancija)</td><td>25%</td><td>&euro;16.250</td></tr>
-    <tr class="section"><td colspan="3">Erika kot 10% lastnica Glam-van:</td></tr>
-    <tr><td><strong>Erika &mdash; dividenda</strong> (10% dobička Glam-van)</td><td>10% &times; 75%</td><td>&euro;4.875</td></tr>
-    <tr><td><strong>Rok &mdash; preostanek Glam-van</strong></td><td>90% &times; 75%</td><td>&euro;43.875</td></tr>
+    <tr><td><span class="lang-sl">Provizija (kdor proda)</span><span class="lang-en">Commission (whoever sells)</span><span class="lang-hu">Jutal&eacute;k (aki elad)</span></td><td><span class="lang-sl">fiksna</span><span class="lang-en">fixed</span><span class="lang-hu">fix</span></td><td>&euro;20.000</td></tr>
+    <tr class="section"><td colspan="3"><span class="lang-sl">Neto dobiček &euro;65.000:</span><span class="lang-en">Net profit &euro;65,000:</span><span class="lang-hu">Nett&oacute; nyeres&eacute;g &euro;65.000:</span></td></tr>
+    <tr><td><strong>Glam-van d.o.o.</strong> (<span class="lang-sl">IP, brand, prodaja, marketing</span><span class="lang-en">IP, brand, sales, marketing</span><span class="lang-hu">IP, m&aacute;rka, &eacute;rt&eacute;kes&iacute;t&eacute;s, marketing</span>)</td><td>75%</td><td>&euro;48.750</td></tr>
+    <tr><td><strong>Alfastreet</strong> (<span class="lang-sl">servis, distribucija, garancija</span><span class="lang-en">service, distribution, warranty</span><span class="lang-hu">szerviz, disztrib&uacute;ci&oacute;, garancia</span>)</td><td>25%</td><td>&euro;16.250</td></tr>
+    <tr class="section"><td colspan="3"><span class="lang-sl">Erika kot 10% lastnica Glam-van:</span><span class="lang-en">Erika as 10% owner of Glam-van:</span><span class="lang-hu">Erika mint a Glam-van 10%-os tulajdonosa:</span></td></tr>
+    <tr><td><strong><span class="lang-sl">Erika &mdash; dividenda</span><span class="lang-en">Erika &mdash; dividend</span><span class="lang-hu">Erika &mdash; osztal&eacute;k</span></strong> (<span class="lang-sl">10% dobička Glam-van</span><span class="lang-en">10% of Glam-van profit</span><span class="lang-hu">a Glam-van nyeres&eacute;g&eacute;nek 10%-a</span>)</td><td>10% &times; 75%</td><td>&euro;4.875</td></tr>
+    <tr><td><strong><span class="lang-sl">Rok &mdash; preostanek Glam-van</span><span class="lang-en">Rok &mdash; remainder Glam-van</span><span class="lang-hu">Rok &mdash; Glam-van marad&eacute;k</span></strong></td><td>90% &times; 75%</td><td>&euro;43.875</td></tr>
   </tbody>
 </table>
 
-<h2>7.3 Scenariji provizij</h2>
+<h2>7.3 <span class="lang-sl">Scenariji provizij</span><span class="lang-en">Commission scenarios</span><span class="lang-hu">Jutal&eacute;k-forgat&oacute;k&ouml;nyvek</span></h2>
 
 <table>
-  <thead><tr><th>Scenarij</th><th>Glam-van</th><th>Alfastreet</th><th>Erika</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Scenarij</span><span class="lang-en">Scenario</span><span class="lang-hu">Forgat&oacute;k&ouml;nyv</span></th><th>Glam-van</th><th>Alfastreet</th><th>Erika</th></tr></thead>
   <tbody>
-    <tr><td><strong>A:</strong> Glam-van najde kupca</td><td>&euro;48.750 + &euro;20k = <strong>&euro;68.750</strong></td><td>&euro;16.250</td><td>&euro;4.875 (dividenda)</td></tr>
-    <tr><td><strong>B:</strong> Alfastreet najde kupca</td><td>&euro;48.750</td><td>&euro;16.250 + &euro;20k = <strong>&euro;36.250</strong></td><td>&euro;4.875 (dividenda)</td></tr>
-    <tr><td><strong>C:</strong> Erika najde kupca</td><td>&euro;48.750</td><td>&euro;16.250</td><td>&euro;4.875 + &euro;20k = <strong>&euro;24.875</strong></td></tr>
+    <tr><td><strong>A:</strong> <span class="lang-sl">Glam-van najde kupca</span><span class="lang-en">Glam-van finds the buyer</span><span class="lang-hu">A Glam-van tal&aacute;lja a vev&odblac;t</span></td><td>&euro;48.750 + &euro;20k = <strong>&euro;68.750</strong></td><td>&euro;16.250</td><td>&euro;4.875 (<span class="lang-sl">dividenda</span><span class="lang-en">dividend</span><span class="lang-hu">osztal&eacute;k</span>)</td></tr>
+    <tr><td><strong>B:</strong> <span class="lang-sl">Alfastreet najde kupca</span><span class="lang-en">Alfastreet finds the buyer</span><span class="lang-hu">Az Alfastreet tal&aacute;lja a vev&odblac;t</span></td><td>&euro;48.750</td><td>&euro;16.250 + &euro;20k = <strong>&euro;36.250</strong></td><td>&euro;4.875 (<span class="lang-sl">dividenda</span><span class="lang-en">dividend</span><span class="lang-hu">osztal&eacute;k</span>)</td></tr>
+    <tr><td><strong>C:</strong> <span class="lang-sl">Erika najde kupca</span><span class="lang-en">Erika finds the buyer</span><span class="lang-hu">Erika tal&aacute;lja a vev&odblac;t</span></td><td>&euro;48.750</td><td>&euro;16.250</td><td>&euro;4.875 + &euro;20k = <strong>&euro;24.875</strong></td></tr>
   </tbody>
 </table>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>8. Erikin lastni&scaron;ki dele&zcaron; &amp; pravice</h1>
+<h1>8. <span class="lang-sl">Erikin lastni&scaron;ki dele&zcaron; &amp; pravice</span><span class="lang-en">Erika&rsquo;s ownership share &amp; rights</span><span class="lang-hu">Erika tulajdoni r&eacute;szesed&eacute;se &eacute;s jogai</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
 <div class="callout">
   <div class="big">10%</div>
-  <div class="small">lastni&scaron;ki delež v Glam-van d.o.o.</div>
+  <div class="small"><span class="lang-sl">lastni&scaron;ki delež v Glam-van d.o.o.</span><span class="lang-en">ownership share in Glam-van d.o.o.</span><span class="lang-hu">tulajdoni r&eacute;szesed&eacute;s a Glam-van d.o.o.-ban</span></div>
 </div>
 
-<p><strong>Ob podpisu pogodbe o sodelovanju</strong> Erika pridobi <strong>10% poslovni dele&zcaron;</strong> v Glam-van d.o.o. To ji zagotavlja:</p>
+<p><span class="lang-sl"><strong>Ob podpisu pogodbe o sodelovanju</strong> Erika pridobi <strong>10% poslovni dele&zcaron;</strong> v Glam-van d.o.o. To ji zagotavlja:</span><span class="lang-en"><strong>Upon signing the cooperation agreement,</strong> Erika acquires a <strong>10% business share</strong> in Glam-van d.o.o. This entitles her to:</span><span class="lang-hu"><strong>Az egy&uuml;ttm&udblac;k&ouml;d&eacute;si meg&aacute;llapod&aacute;s al&aacute;&iacute;r&aacute;sakor</strong> Erika <strong>10%-os &uuml;zletr&eacute;szt</strong> szerez a Glam-van d.o.o.-ban. Ez a k&ouml;vetkez&odblac;ket biztos&iacute;tja sz&aacute;m&aacute;ra:</span></p>
 
 <ul style="margin: 0 0 16px 24px; line-height: 2;">
-  <li><strong>10% dividende</strong> od dobička Glam-van (7,5% celotnega dobička projekta)</li>
-  <li><strong>&euro;20.000 provizija</strong> za vsakega kupca, ki ga sama privede</li>
-  <li><strong>Glasovalna pravica</strong> na skupščini sorazmerno z dele&zcaron;em</li>
-  <li><strong>Vpogled v poslovanje</strong> &mdash; transparentno poročanje (open book)</li>
-  <li><strong>Vozilo po nabavni ceni</strong> (~&euro;140k namesto &euro;225k)</li>
+  <li><span class="lang-sl"><strong>10% dividende</strong> od dobička Glam-van (7,5% celotnega dobička projekta)</span><span class="lang-en"><strong>10% dividend</strong> from Glam-van profit (7.5% of total project profit)</span><span class="lang-hu"><strong>10% osztal&eacute;k</strong> a Glam-van nyeres&eacute;g&eacute;b&odblac;l (a teljes projektnyeres&eacute;g 7,5%-a)</span></li>
+  <li><span class="lang-sl"><strong>&euro;20.000 provizija</strong> za vsakega kupca, ki ga sama privede</span><span class="lang-en"><strong>&euro;20,000 commission</strong> for each buyer she personally brings</span><span class="lang-hu"><strong>&euro;20.000 jutal&eacute;k</strong> minden &aacute;ltala szem&eacute;lyesen hozott vev&odblac; ut&aacute;n</span></li>
+  <li><span class="lang-sl"><strong>Glasovalna pravica</strong> na skupščini sorazmerno z dele&zcaron;em</span><span class="lang-en"><strong>Voting rights</strong> at the general assembly proportional to her share</span><span class="lang-hu"><strong>Szavazati jog</strong> a k&ouml;zgy&udblac;l&eacute;sen a r&eacute;szesed&eacute;s&eacute;vel ar&aacute;nyosan</span></li>
+  <li><span class="lang-sl"><strong>Vpogled v poslovanje</strong> &mdash; transparentno poročanje (open book)</span><span class="lang-en"><strong>Business insight</strong> &mdash; transparent reporting (open book)</span><span class="lang-hu"><strong>&Uuml;zleti betekint&eacute;s</strong> &mdash; &aacute;tl&aacute;that&oacute; besz&aacute;mol&aacute;s (nyitott k&ouml;nyvel&eacute;s)</span></li>
+  <li><span class="lang-sl"><strong>Vozilo po nabavni ceni</strong> (~&euro;140k namesto &euro;225k)</span><span class="lang-en"><strong>Vehicle at cost price</strong> (~&euro;140k instead of &euro;225k)</span><span class="lang-hu"><strong>J&aacute;rm&udblac; &ouml;nk&ouml;lts&eacute;gi &aacute;ron</strong> (~&euro;140k az &euro;225k helyett)</span></li>
 </ul>
 
 <div class="info-box">
-  <div class="label">Pogoj za pridobitev dele&zcaron;a</div>
-  Erika financira demo vozilo (&euro;160.000). Denar ji je v celoti vrnjen ob prodaji demo vozila. Poslovni delež obdrži trajno (dokler je družbenica).
+  <div class="label"><span class="lang-sl">Pogoj za pridobitev dele&zcaron;a</span><span class="lang-en">Condition for acquiring the share</span><span class="lang-hu">A r&eacute;szesed&eacute;s megszerz&eacute;s&eacute;nek felt&eacute;tele</span></div>
+  <span class="lang-sl">Erika financira demo vozilo (&euro;160.000). Denar ji je v celoti vrnjen ob prodaji demo vozila. Poslovni delež obdrži trajno (dokler je družbenica).</span><span class="lang-en">Erika finances the demo vehicle (&euro;160,000). The funds are returned to her in full upon sale of the demo vehicle. She retains the business share permanently (as long as she remains a partner).</span><span class="lang-hu">Erika finansz&iacute;rozza a dem&oacute; j&aacute;rm&udblac;vet (&euro;160.000). A p&eacute;nz teljes eg&eacute;sz&eacute;ben visszaj&aacute;r a dem&oacute; j&aacute;rm&udblac; &eacute;rt&eacute;kes&iacute;t&eacute;sekor. Az &uuml;zletr&eacute;szt tart&oacute;san megtartja (am&iacute;g t&aacute;rstulajdonos).</span>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>9. Celotna časovnica</h1>
+<h1>9. <span class="lang-sl">Celotna časovnica</span><span class="lang-en">Complete timeline</span><span class="lang-hu">Teljes &uuml;temterv</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
 <div class="timeline">
-  <div class="tl-item"><div class="tl-date">april 2026</div><div class="tl-desc"><strong>Podpis pogodbe</strong> med Rokom, Eriko in Alfastreet. Erika pridobi 10% Glam-van. Ustanovitev Glam-van d.o.o.</div></div>
-  <div class="tl-item"><div class="tl-date">april 2026</div><div class="tl-desc"><strong>Erika kupi vozilo od Robeta</strong> (&euro;55.000 neto). Kasko zavarovanje. Vozilo ostane pri Alfastreet.</div></div>
-  <div class="tl-item"><div class="tl-date">1. maj 2026</div><div class="tl-desc"><strong>Naročilo Alfastreet</strong> &mdash; 1. obrok &euro;16.449. Začetek 12-tedenske gradnje.</div></div>
-  <div class="tl-item"><div class="tl-date">~1. jun 2026</div><div class="tl-desc"><strong>Mock-up faza</strong> &mdash; 2. obrok Alfastreet &euro;16.449. Erika nakaže &euro;30.000 za opremo.</div></div>
-  <div class="tl-item"><div class="tl-date">~15. jul 2026</div><div class="tl-desc"><strong>Dokončanje</strong> &mdash; 3. obrok Alfastreet &euro;21.932. Preostanek (&euro;20.170) za folijo, platišča, razno.</div></div>
-  <div class="tl-item"><div class="tl-date">avg 2026</div><div class="tl-desc"><strong>Homologacija</strong> (RTI / AMZS). Registracija. Tehnični pregled.</div></div>
-  <div class="tl-item"><div class="tl-date">28. avg &ndash; 6. sep</div><div class="tl-desc"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; svetovna premiera.</div></div>
-  <div class="tl-item"><div class="tl-date">sep &ndash; nov 2026</div><div class="tl-desc"><strong>European Road Tour</strong> &mdash; demo vožnje, micro-eventi, marketing.</div></div>
-  <div class="tl-item"><div class="tl-date">dec 2026</div><div class="tl-desc"><strong>Prodaja demo vozila</strong> ~&euro;210k. &euro;160k vračilo Eriki. &euro;50k operativni sklad.</div></div>
-  <div class="tl-item"><div class="tl-date">jan 2027</div><div class="tl-desc"><strong>Erika + Rok vsak naročita po 1 vozilo.</strong> Simultana gradnja pri Alfastreet. Erika plača &euro;140k (nabavna cena, brez provizije).</div></div>
-  <div class="tl-item"><div class="tl-date">Q2 2027</div><div class="tl-desc"><strong>Začetek serijske proizvodnje.</strong> Cilj: 10 vozil / leto.</div></div>
-  <div class="tl-item"><div class="tl-date">2027&ndash;2030</div><div class="tl-desc"><strong>Rast na 15 vozil / leto.</strong> Erika prejema dividende + provizije.</div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">april 2026</span><span class="lang-en">April 2026</span><span class="lang-hu">2026. &aacute;pr.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Podpis pogodbe</strong> med Rokom, Eriko in Alfastreet. Erika pridobi 10% Glam-van. Ustanovitev Glam-van d.o.o.</span><span class="lang-en"><strong>Contract signing</strong> between Rok, Erika, and Alfastreet. Erika acquires 10% of Glam-van. Establishment of Glam-van d.o.o.</span><span class="lang-hu"><strong>Szerz&odblac;d&eacute;s al&aacute;&iacute;r&aacute;sa</strong> Rok, Erika &eacute;s az Alfastreet k&ouml;z&ouml;tt. Erika megszerzi a Glam-van 10%-&aacute;t. A Glam-van d.o.o. megalap&iacute;t&aacute;sa.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">april 2026</span><span class="lang-en">April 2026</span><span class="lang-hu">2026. &aacute;pr.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Erika kupi vozilo od Robeta</strong> (&euro;55.000 neto). Kasko zavarovanje. Vozilo ostane pri Alfastreet.</span><span class="lang-en"><strong>Erika purchases the vehicle from Robeta</strong> (&euro;55,000 net). Comprehensive insurance. Vehicle remains at Alfastreet.</span><span class="lang-hu"><strong>Erika megv&aacute;s&aacute;rolja a j&aacute;rm&udblac;vet a Robet&aacute;t&oacute;l</strong> (&euro;55.000 nett&oacute;). Casco biztos&iacute;t&aacute;s. A j&aacute;rm&udblac; az Alfastretn&eacute;l marad.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">1. maj 2026</span><span class="lang-en">1 May 2026</span><span class="lang-hu">2026. m&aacute;j. 1.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Naročilo Alfastreet</strong> &mdash; 1. obrok &euro;16.449. Začetek 12-tedenske gradnje.</span><span class="lang-en"><strong>Alfastreet order</strong> &mdash; 1st instalment &euro;16,449. Start of 12-week build.</span><span class="lang-hu"><strong>Alfastreet megrendel&eacute;s</strong> &mdash; 1. r&eacute;szlet &euro;16.449. A 12 hetes &eacute;p&iacute;t&eacute;s kezdete.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">~1. jun 2026</span><span class="lang-en">~1 Jun 2026</span><span class="lang-hu">~2026. j&uacute;n. 1.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Mock-up faza</strong> &mdash; 2. obrok Alfastreet &euro;16.449. Erika nakaže &euro;30.000 za opremo.</span><span class="lang-en"><strong>Mock-up phase</strong> &mdash; 2nd instalment Alfastreet &euro;16,449. Erika transfers &euro;30,000 for equipment.</span><span class="lang-hu"><strong>Makett f&aacute;zis</strong> &mdash; 2. r&eacute;szlet Alfastreet &euro;16.449. Erika &aacute;tutal &euro;30.000-t a felszerel&eacute;sre.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">~15. jul 2026</span><span class="lang-en">~15 Jul 2026</span><span class="lang-hu">~2026. j&uacute;l. 15.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Dokončanje</strong> &mdash; 3. obrok Alfastreet &euro;21.932. Preostanek (&euro;20.170) za folijo, platišča, razno.</span><span class="lang-en"><strong>Completion</strong> &mdash; 3rd instalment Alfastreet &euro;21,932. Remainder (&euro;20,170) for wrap, wheels, miscellaneous.</span><span class="lang-hu"><strong>Befejez&eacute;s</strong> &mdash; 3. r&eacute;szlet Alfastreet &euro;21.932. Marad&eacute;k (&euro;20.170) f&oacute;lia, felni, egy&eacute;b.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">avg 2026</span><span class="lang-en">Aug 2026</span><span class="lang-hu">2026. aug.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Homologacija</strong> (RTI / AMZS). Registracija. Tehnični pregled.</span><span class="lang-en"><strong>Homologation</strong> (RTI / AMZS). Registration. Technical inspection.</span><span class="lang-hu"><strong>Homolig&aacute;ci&oacute;</strong> (RTI / AMZS). Regisztr&aacute;ci&oacute;. M&udblac;szaki vizsg&aacute;lat.</span></div></div>
+  <div class="tl-item"><div class="tl-date">28. aug &ndash; 6. sep</div><div class="tl-desc"><span class="lang-sl"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; svetovna premiera.</span><span class="lang-en"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; world premiere.</span><span class="lang-hu"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; vil&aacute;gpremier.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">sep &ndash; nov 2026</span><span class="lang-en">Sep &ndash; Nov 2026</span><span class="lang-hu">2026. szept. &ndash; nov.</span></div><div class="tl-desc"><span class="lang-sl"><strong>European Road Tour</strong> &mdash; demo vožnje, micro-eventi, marketing.</span><span class="lang-en"><strong>European Road Tour</strong> &mdash; demo drives, micro-events, marketing.</span><span class="lang-hu"><strong>European Road Tour</strong> &mdash; dem&oacute; vezet&eacute;sek, mikroesem&eacute;nyek, marketing.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">dec 2026</span><span class="lang-en">Dec 2026</span><span class="lang-hu">2026. dec.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Prodaja demo vozila</strong> ~&euro;210k. &euro;160k vračilo Eriki. &euro;50k operativni sklad.</span><span class="lang-en"><strong>Demo vehicle sale</strong> ~&euro;210k. &euro;160k returned to Erika. &euro;50k operational fund.</span><span class="lang-hu"><strong>Dem&oacute; j&aacute;rm&udblac; &eacute;rt&eacute;kes&iacute;t&eacute;se</strong> ~&euro;210k. &euro;160k visszat&eacute;r&iacute;t&eacute;s Erik&aacute;nak. &euro;50k oper&aacute;ci&oacute;s alap.</span></div></div>
+  <div class="tl-item"><div class="tl-date"><span class="lang-sl">jan 2027</span><span class="lang-en">Jan 2027</span><span class="lang-hu">2027. jan.</span></div><div class="tl-desc"><span class="lang-sl"><strong>Erika + Rok vsak naročita po 1 vozilo.</strong> Simultana gradnja pri Alfastreet. Erika plača &euro;140k (nabavna cena, brez provizije).</span><span class="lang-en"><strong>Erika + Rok each order 1 vehicle.</strong> Simultaneous build at Alfastreet. Erika pays &euro;140k (at cost, no commission).</span><span class="lang-hu"><strong>Erika + Rok egyar&aacute;nt megrendel 1-1 j&aacute;rm&udblac;vet.</strong> P&aacute;rhuzamos &eacute;p&iacute;t&eacute;s az Alfastretn&eacute;l. Erika &euro;140k-t fizet (&ouml;nk&ouml;lts&eacute;gi &aacute;ron, jutal&eacute;k n&eacute;lk&uuml;l).</span></div></div>
+  <div class="tl-item"><div class="tl-date">Q2 2027</div><div class="tl-desc"><span class="lang-sl"><strong>Začetek serijske proizvodnje.</strong> Cilj: 10 vozil / leto.</span><span class="lang-en"><strong>Start of serial production.</strong> Target: 10 vehicles / year.</span><span class="lang-hu"><strong>A sorozatgy&aacute;rt&aacute;s kezdete.</strong> C&eacute;l: 10 j&aacute;rm&udblac; / &eacute;v.</span></div></div>
+  <div class="tl-item"><div class="tl-date">2027&ndash;2030</div><div class="tl-desc"><span class="lang-sl"><strong>Rast na 15 vozil / leto.</strong> Erika prejema dividende + provizije.</span><span class="lang-en"><strong>Growth to 15 vehicles / year.</strong> Erika receives dividends + commissions.</span><span class="lang-hu"><strong>N&ouml;veked&eacute;s &eacute;vi 15 j&aacute;rm&udblac;re.</strong> Erika osztal&eacute;kot + jutal&eacute;kot kap.</span></div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>10. Erikina denarna sredstva &mdash; tok plačil</h1>
+<h1>10. <span class="lang-sl">Erikina denarna sredstva &mdash; tok plačil</span><span class="lang-en">Erika&rsquo;s funds &mdash; payment flow</span><span class="lang-hu">Erika p&eacute;nzeszk&ouml;zei &mdash; fizet&eacute;si folyamat</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
 <table>
-  <thead><tr><th>Datum</th><th>Prejemnik</th><th>Namen</th><th>Znesek</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Datum</span><span class="lang-en">Date</span><span class="lang-hu">D&aacute;tum</span></th><th><span class="lang-sl">Prejemnik</span><span class="lang-en">Recipient</span><span class="lang-hu">Kedvezm&eacute;nyezett</span></th><th><span class="lang-sl">Namen</span><span class="lang-en">Purpose</span><span class="lang-hu">C&eacute;l</span></th><th><span class="lang-sl">Znesek</span><span class="lang-en">Amount</span><span class="lang-hu">&Ouml;sszeg</span></th></tr></thead>
   <tbody>
-    <tr><td>apr 2026</td><td>Robeta d.o.o.</td><td>Nakup Sprinter</td><td>&euro;55.000</td></tr>
-    <tr><td>1. maj</td><td>Alfastreet</td><td>1. obrok (30% ponudbe)</td><td>&euro;16.449</td></tr>
-    <tr><td>~1. jun</td><td>Alfastreet</td><td>2. obrok (30%) + oprema</td><td>&euro;46.449</td></tr>
-    <tr><td>~15. jul</td><td>Alfastreet</td><td>3. obrok (40%)</td><td>&euro;21.932</td></tr>
-    <tr><td>jul&ndash;avg</td><td>Razni</td><td>Folija, platišča, razno</td><td>&euro;20.170</td></tr>
-    <tr class="total"><td colspan="3">Skupaj investicija Erika</td><td>&euro;160.000</td></tr>
-    <tr><td>dec 2026</td><td colspan="2"><strong>Vračilo iz prodaje demo vozila</strong></td><td style="color:#b5a291;">&minus;&euro;160.000</td></tr>
-    <tr class="total"><td colspan="3">Neto izpostavljenost Erike (po prodaji demo)</td><td>&euro;0</td></tr>
+    <tr><td><span class="lang-sl">apr 2026</span><span class="lang-en">Apr 2026</span><span class="lang-hu">2026. &aacute;pr.</span></td><td>Robeta d.o.o.</td><td><span class="lang-sl">Nakup Sprinter</span><span class="lang-en">Sprinter purchase</span><span class="lang-hu">Sprinter v&aacute;s&aacute;rl&aacute;s</span></td><td>&euro;55.000</td></tr>
+    <tr><td><span class="lang-sl">1. maj</span><span class="lang-en">1 May</span><span class="lang-hu">m&aacute;j. 1.</span></td><td>Alfastreet</td><td><span class="lang-sl">1. obrok (30% ponudbe)</span><span class="lang-en">1st instalment (30% of quotation)</span><span class="lang-hu">1. r&eacute;szlet (az aj&aacute;nlat 30%-a)</span></td><td>&euro;16.449</td></tr>
+    <tr><td><span class="lang-sl">~1. jun</span><span class="lang-en">~1 Jun</span><span class="lang-hu">~j&uacute;n. 1.</span></td><td>Alfastreet</td><td><span class="lang-sl">2. obrok (30%) + oprema</span><span class="lang-en">2nd instalment (30%) + equipment</span><span class="lang-hu">2. r&eacute;szlet (30%) + felszerel&eacute;s</span></td><td>&euro;46.449</td></tr>
+    <tr><td><span class="lang-sl">~15. jul</span><span class="lang-en">~15 Jul</span><span class="lang-hu">~j&uacute;l. 15.</span></td><td>Alfastreet</td><td><span class="lang-sl">3. obrok (40%)</span><span class="lang-en">3rd instalment (40%)</span><span class="lang-hu">3. r&eacute;szlet (40%)</span></td><td>&euro;21.932</td></tr>
+    <tr><td><span class="lang-sl">jul&ndash;avg</span><span class="lang-en">Jul&ndash;Aug</span><span class="lang-hu">j&uacute;l.&ndash;aug.</span></td><td><span class="lang-sl">Razni</span><span class="lang-en">Various</span><span class="lang-hu">K&uuml;l&ouml;nb&ouml;z&odblac;</span></td><td><span class="lang-sl">Folija, platišča, razno</span><span class="lang-en">Wrap, wheels, miscellaneous</span><span class="lang-hu">F&oacute;lia, felni, egy&eacute;b</span></td><td>&euro;20.170</td></tr>
+    <tr class="total"><td colspan="3"><span class="lang-sl">Skupaj investicija Erika</span><span class="lang-en">Total investment Erika</span><span class="lang-hu">&Ouml;sszes befektet&eacute;s Erika</span></td><td>&euro;160.000</td></tr>
+    <tr><td><span class="lang-sl">dec 2026</span><span class="lang-en">Dec 2026</span><span class="lang-hu">2026. dec.</span></td><td colspan="2"><strong><span class="lang-sl">Vračilo iz prodaje demo vozila</span><span class="lang-en">Return from demo vehicle sale</span><span class="lang-hu">Visszat&eacute;r&iacute;t&eacute;s a dem&oacute; j&aacute;rm&udblac; elad&aacute;s&aacute;b&oacute;l</span></strong></td><td style="color:#b5a291;">&minus;&euro;160.000</td></tr>
+    <tr class="total"><td colspan="3"><span class="lang-sl">Neto izpostavljenost Erike (po prodaji demo)</span><span class="lang-en">Erika&rsquo;s net exposure (after demo sale)</span><span class="lang-hu">Erika nett&oacute; kitetetts&eacute;ge (a dem&oacute; elad&aacute;sa ut&aacute;n)</span></td><td>&euro;0</td></tr>
   </tbody>
 </table>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>11. 5-letna projekcija &mdash; Erikin donos</h1>
+<h1>11. <span class="lang-sl">5-letna projekcija &mdash; Erikin donos</span><span class="lang-en">5-year projection &mdash; Erika&rsquo;s return</span><span class="lang-hu">5 &eacute;ves el&odblac;rejelz&eacute;s &mdash; Erika hozama</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
 <table>
-  <thead><tr><th>Leto</th><th>Vozila</th><th>Dividenda (10%)</th><th>Provizije (~3/leto)</th><th>Skupaj / leto</th><th>Kumulativno</th></tr></thead>
+  <thead><tr><th><span class="lang-sl">Leto</span><span class="lang-en">Year</span><span class="lang-hu">&Eacute;v</span></th><th><span class="lang-sl">Vozila</span><span class="lang-en">Vehicles</span><span class="lang-hu">J&aacute;rm&udblac;vek</span></th><th><span class="lang-sl">Dividenda (10%)</span><span class="lang-en">Dividend (10%)</span><span class="lang-hu">Osztal&eacute;k (10%)</span></th><th><span class="lang-sl">Provizije (~3/leto)</span><span class="lang-en">Commissions (~3/yr)</span><span class="lang-hu">Jutal&eacute;kok (~3/&eacute;v)</span></th><th><span class="lang-sl">Skupaj / leto</span><span class="lang-en">Total / year</span><span class="lang-hu">&Ouml;sszesen / &eacute;v</span></th><th><span class="lang-sl">Kumulativno</span><span class="lang-en">Cumulative</span><span class="lang-hu">Halmozott</span></th></tr></thead>
   <tbody>
-    <tr><td>2026</td><td>1 (demo)</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td></tr>
+    <tr><td>2026</td><td>1 (<span class="lang-sl">demo</span><span class="lang-en">demo</span><span class="lang-hu">dem&oacute;</span>)</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td></tr>
     <tr><td>2027</td><td>10</td><td>&euro;48.750</td><td>&euro;60.000</td><td>&euro;108.750</td><td>&euro;108.750</td></tr>
     <tr><td>2028</td><td>10</td><td>&euro;48.750</td><td>&euro;60.000</td><td>&euro;108.750</td><td>&euro;217.500</td></tr>
     <tr><td>2029</td><td>12</td><td>&euro;58.500</td><td>&euro;60.000</td><td>&euro;118.500</td><td>&euro;336.000</td></tr>
@@ -474,42 +502,62 @@
 
 <div class="callout">
   <div class="big">&euro;469.125</div>
-  <div class="small">Erikin kumulativni donos do 2030 (dividende + provizije)</div>
+  <div class="small"><span class="lang-sl">Erikin kumulativni donos do 2030 (dividende + provizije)</span><span class="lang-en">Erika&rsquo;s cumulative return by 2030 (dividends + commissions)</span><span class="lang-hu">Erika halmozott hozama 2030-ig (osztal&eacute;k + jutal&eacute;kok)</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<h1>12. Naslednji koraki</h1>
+<h1>12. <span class="lang-sl">Naslednji koraki</span><span class="lang-en">Next steps</span><span class="lang-hu">K&ouml;vetkez&odblac; l&eacute;p&eacute;sek</span></h1>
 <!-- ═══════════════════════════════════════════ -->
 
 <div class="step">
   <div class="step-num">1</div>
-  <div class="step-content"><strong>Sestanek Rok + Erika:</strong> potrditev modela, lastni&scaron;kega dele&zcaron;a in pogojev.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Sestanek Rok + Erika:</strong> potrditev modela, lastni&scaron;kega dele&zcaron;a in pogojev.</span><span class="lang-en"><strong>Meeting Rok + Erika:</strong> confirmation of model, ownership share, and terms.</span><span class="lang-hu"><strong>Megbesz&eacute;l&eacute;s Rok + Erika:</strong> a modell, a tulajdoni r&eacute;szesed&eacute;s &eacute;s a felt&eacute;telek meger&odblac;s&iacute;t&eacute;se.</span></div>
 </div>
 <div class="step">
   <div class="step-num">2</div>
-  <div class="step-content"><strong>Ustanovitev Glam-van d.o.o.</strong> &mdash; Rok 90%, Erika 10%. Notar, AJPES.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Ustanovitev Glam-van d.o.o.</strong> &mdash; Rok 90%, Erika 10%. Notar, AJPES.</span><span class="lang-en"><strong>Establishment of Glam-van d.o.o.</strong> &mdash; Rok 90%, Erika 10%. Notary, AJPES.</span><span class="lang-hu"><strong>A Glam-van d.o.o. megalap&iacute;t&aacute;sa</strong> &mdash; Rok 90%, Erika 10%. K&ouml;zjegyz&odblac;, AJPES.</span></div>
 </div>
 <div class="step">
   <div class="step-num">3</div>
-  <div class="step-content"><strong>Pogodba o sodelovanju</strong> &mdash; tristranski dogovor (Glam-van / Erika / Alfastreet). Odvetnik.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Pogodba o sodelovanju</strong> &mdash; tristranski dogovor (Glam-van / Erika / Alfastreet). Odvetnik.</span><span class="lang-en"><strong>Cooperation agreement</strong> &mdash; tripartite agreement (Glam-van / Erika / Alfastreet). Lawyer.</span><span class="lang-hu"><strong>Egy&uuml;ttm&udblac;k&ouml;d&eacute;si meg&aacute;llapod&aacute;s</strong> &mdash; h&aacute;romoldal&uacute; meg&aacute;llapod&aacute;s (Glam-van / Erika / Alfastreet). &Uuml;gyv&eacute;d.</span></div>
 </div>
 <div class="step">
   <div class="step-num">4</div>
-  <div class="step-content"><strong>Erika kupi Sprinter od Robeta</strong> (&euro;55k). Kasko zavarovanje.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Erika kupi Sprinter od Robeta</strong> (&euro;55k). Kasko zavarovanje.</span><span class="lang-en"><strong>Erika purchases the Sprinter from Robeta</strong> (&euro;55k). Comprehensive insurance.</span><span class="lang-hu"><strong>Erika megv&aacute;s&aacute;rolja a Sprintert a Robet&aacute;t&oacute;l</strong> (&euro;55k). Casco biztos&iacute;t&aacute;s.</span></div>
 </div>
 <div class="step">
   <div class="step-num">5</div>
-  <div class="step-content"><strong>Naročilo Alfastreet</strong> &mdash; 1. obrok. Začetek 12-tedenske gradnje.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Naročilo Alfastreet</strong> &mdash; 1. obrok. Začetek 12-tedenske gradnje.</span><span class="lang-en"><strong>Alfastreet order</strong> &mdash; 1st instalment. Start of 12-week build.</span><span class="lang-hu"><strong>Alfastreet megrendel&eacute;s</strong> &mdash; 1. r&eacute;szlet. A 12 hetes &eacute;p&iacute;t&eacute;s kezdete.</span></div>
 </div>
 <div class="step">
   <div class="step-num">6</div>
-  <div class="step-content"><strong>Kontakt RTI d.o.o.</strong> (Maribor) za posvet glede homologacije &mdash; idealno &zcaron;e pred začetkom gradnje.</div>
+  <div class="step-content"><span class="lang-sl"><strong>Kontakt RTI d.o.o.</strong> (Maribor) za posvet glede homologacije &mdash; idealno &zcaron;e pred začetkom gradnje.</span><span class="lang-en"><strong>Contact RTI d.o.o.</strong> (Maribor) for homologation consultation &mdash; ideally before the build starts.</span><span class="lang-hu"><strong>Kapcsolatfelv&eacute;tel az RTI d.o.o.-val</strong> (Maribor) a homolig&aacute;ci&oacute;s konzult&aacute;ci&oacute;&eacute;rt &mdash; ide&aacute;lis esetben m&eacute;g az &eacute;p&iacute;t&eacute;s megkezd&eacute;se el&odblac;tt.</span></div>
 </div>
 
 <div class="footer">
   Glam-van d.o.o. &middot; Na Zavrteh 15, Dom&zcaron;ale &middot; Rok Kordin &middot; rok@glam-van.com &middot; +386 41 316 725<br>
-  EUIPO RCD 015116778-0001 &middot; Zaupno &middot; April 2026
+  EUIPO RCD 015116778-0001 &middot; <span class="lang-sl">Zaupno</span><span class="lang-en">Confidential</span><span class="lang-hu">Bizalmas</span> &middot; April 2026
 </div>
+
+<script>
+function setLang(lang) {
+  var langs = ['sl', 'en', 'hu'];
+  for (var i = 0; i < langs.length; i++) {
+    var els = document.querySelectorAll('.lang-' + langs[i]);
+    for (var j = 0; j < els.length; j++) {
+      els[j].style.display = langs[i] === lang ? 'inline' : 'none';
+    }
+  }
+  var btns = document.querySelectorAll('.lang-btn');
+  for (var k = 0; k < btns.length; k++) {
+    btns[k].classList.remove('active');
+    if (btns[k].textContent === lang.toUpperCase()) {
+      btns[k].classList.add('active');
+    }
+  }
+  document.documentElement.lang = lang;
+}
+</script>
 
 </body>
 </html>
