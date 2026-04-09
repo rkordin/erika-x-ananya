@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANANYA — Celoten postopek izvedbe projekta</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bebas+Neue&family=Inter:wght@200;300;400;500&display=swap');
+    @font-face { font-family: 'Active Grotesk CD'; src: local('Active Grotesk CD Regular'), local('ActiveGroteskCD-Regular'); font-weight: 400; }
+    @font-face { font-family: 'Active Grotesk CD'; src: local('Active Grotesk CD Light'), local('ActiveGroteskCD-Light'); font-weight: 300; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #fff; color: #383838; font-family: 'Active Grotesk CD', 'Inter', -apple-system, sans-serif; font-weight: 300; padding: 56px 48px; max-width: 1100px; margin: 0 auto; -webkit-font-smoothing: antialiased; line-height: 1.8; font-size: 15px; }
+
+    .header { text-align: center; margin-bottom: 56px; }
+    .header .logo { font-family: 'Bebas Neue', sans-serif; font-size: 64px; letter-spacing: 22px; text-transform: uppercase; color: #383838; }
+    .header .sub { font-size: 15px; letter-spacing: 6px; text-transform: uppercase; color: #b5a291; font-weight: 300; margin-top: 10px; }
+    .header .tagline { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; font-style: italic; color: #b5a291; margin-top: 18px; }
+    .header .meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-top: 22px; font-size: 12px; color: rgba(56,56,56,0.3); letter-spacing: 2.5px; text-transform: uppercase; }
+    .header .meta span.dot { color: rgba(56,56,56,0.15); }
+    .divider { width: 60px; height: 1px; background: #b5a291; opacity: 0.3; margin: 26px auto 0; }
+
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 6px; text-transform: uppercase; color: #383838; margin: 52px 0 8px; padding-bottom: 8px; border-bottom: 2px solid rgba(56,56,56,0.06); }
+    h2 { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; color: #b5a291; margin: 36px 0 12px; }
+    h3 { font-size: 16px; font-weight: 400; color: #383838; margin: 24px 0 8px; }
+    p { margin-bottom: 12px; }
+    strong { color: #383838; font-weight: 400; }
+    .muted { color: rgba(56,56,56,0.4); }
+    .accent { color: #b5a291; font-weight: 400; }
+
+    .info-box { background: rgba(181,162,145,0.06); border-left: 2px solid #b5a291; padding: 20px 24px; margin: 20px 0; font-size: 14px; }
+    .info-box .label { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #b5a291; margin-bottom: 8px; }
+    .warn-box { background: rgba(200,60,60,0.04); border-left: 2px solid rgba(200,60,60,0.4); padding: 20px 24px; margin: 20px 0; font-size: 14px; }
+    .warn-box .label { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: rgba(200,60,60,0.6); margin-bottom: 8px; }
+
+    .step { display: flex; gap: 20px; margin: 20px 0; align-items: flex-start; }
+    .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: rgba(181,162,145,0.25); flex-shrink: 0; width: 48px; text-align: center; line-height: 1; padding-top: 4px; }
+    .step-content { flex: 1; }
+
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    th { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; text-align: left; padding: 10px 14px; border-bottom: 2px solid rgba(56,56,56,0.08); color: #383838; }
+    th:last-child { text-align: right; }
+    td { padding: 8px 14px; border-bottom: 1px solid rgba(56,56,56,0.04); color: rgba(56,56,56,0.55); font-variant-numeric: tabular-nums; }
+    td:last-child { text-align: right; color: #383838; font-weight: 400; }
+    tr.total td { border-top: 2px solid rgba(56,56,56,0.08); border-bottom: 2px solid rgba(56,56,56,0.08); font-weight: 400; color: #383838; padding: 12px 14px; }
+    tr.sub td { padding-left: 28px; font-size: 13px; color: rgba(56,56,56,0.4); }
+    tr.sub td:last-child { color: rgba(56,56,56,0.4); font-weight: 300; }
+    tr.section td { padding-top: 16px; font-weight: 400; color: #383838; border-bottom: 1px solid rgba(56,56,56,0.08); }
+
+    .timeline { margin: 24px 0; }
+    .tl-item { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+    .tl-date { font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: #b5a291; letter-spacing: 1px; width: 120px; flex-shrink: 0; padding-top: 2px; }
+    .tl-desc { flex: 1; font-size: 14px; line-height: 1.7; }
+
+    .callout { border-left: 2px solid #b5a291; padding: 16px 20px; margin: 24px 0; background: rgba(181,162,145,0.04); }
+    .callout .big { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #383838; }
+    .callout .small { font-size: 12px; color: #b5a291; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+    .footer { text-align: center; margin-top: 56px; padding-top: 32px; border-top: 1px solid rgba(56,56,56,0.06); font-size: 12px; color: rgba(56,56,56,0.2); letter-spacing: 3px; text-transform: uppercase; line-height: 2.2; }
+
+    @media (max-width: 768px) {
+      body { padding: 28px 18px; font-size: 14px; }
+      .header .logo { font-size: 44px; letter-spacing: 12px; }
+      h1 { font-size: 22px; }
+      .step { flex-direction: column; gap: 4px; }
+      .step-num { width: auto; }
+      .tl-item { flex-direction: column; gap: 2px; }
+      .tl-date { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">Ananya</div>
+  <div class="sub">Celoten postopek izvedbe projekta</div>
+  <div class="tagline">Operativni na&ccaron;rt &mdash; od nakupa vozila do serijske proizvodnje</div>
+  <div class="meta">
+    <span>Zaupno</span><span class="dot">&middot;</span>
+    <span>April 2026</span><span class="dot">&middot;</span>
+    <span>Rok Kordin, founder</span><span class="dot">&middot;</span>
+    <span>Erika Gy&ouml;rei, investitor</span>
+  </div>
+  <div class="divider"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>1. Osnovno vozilo</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<h2>1.1 Podatki o vozilu</h2>
+
+<div class="info-box">
+  <div class="label">Mercedes-Benz Sprinter Panel Van SELECT 419 CDI long</div>
+  <strong>Model:</strong> New Sprinter (907/910) &middot; <strong>Pogon:</strong> AWD 4&times;4 &middot; <strong>Motor:</strong> OM 654 DE 20 LA, 140 kW (190 PS)<br>
+  <strong>Menjalnik:</strong> 9G-TRONIC &middot; <strong>Medosje:</strong> 4325 mm &middot; <strong>Masa:</strong> 4100 kg &middot; <strong>Streha:</strong> visoka<br>
+  <strong>Baumuster:</strong> 90764513 &middot; <strong>Konfiguracija:</strong> M2UJB5TR<br>
+  <strong>COC:</strong> nepopoln (incomplete) &mdash; potrebna posamična odobritev po predelavi<br><br>
+  <strong>Cena v MB salonu (Slovenija):</strong> <span class="accent">&euro;97.524 neto / &euro;116.054 z DDV</span><br>
+  <strong>Cena od Robeta (bodybuilder discount):</strong> <span class="accent">&euro;55.000 neto</span><br>
+  <span class="muted">Prihranek: &euro;42.524 neto (44% popust preko Robeta pogodbene cene z MB)</span>
+</div>
+
+<p>Vozilo je trenutno že pri Alfastreet v Se&zcaron;ani (dostavljeno s strani Robeta). Potreben je le &scaron;e odkup.</p>
+
+<h2>1.2 Kdo kupi vozilo? &mdash; Predlog</h2>
+
+<div class="warn-box">
+  <div class="label">Klju&ccaron;no vpra&scaron;anje</div>
+  Glam-van d.o.o. <strong>&scaron;e ni ustanovljen</strong>. Zato predlagamo, da vozilo kupi neposredno <strong>Erika oz. njeno podjetje GY&Ouml;REI Kft.</strong> (Madžarska).
+</div>
+
+<h3>Predlog: Erika / GY&Ouml;REI Kft. kupi neposredno od Robeta</h3>
+
+<p><strong>Prednosti:</strong></p>
+<ul style="margin: 0 0 16px 24px; line-height: 2;">
+  <li>Vozilo je <strong>v lasti Erike</strong> &mdash; služi kot <strong>garancija za vložen denar</strong> (kolateral)</li>
+  <li>Ni potrebe čakati na ustanovitev Glam-van d.o.o.</li>
+  <li>Erika kot lastnica lahko vozilo <strong>zavaruje kasko</strong> (toča, transport, poškodbe)</li>
+  <li>Vozilo je registrirano na HU podjetje &mdash; DDV obračun po EU pravilih (reverse charge)</li>
+  <li>Ob prodaji demo vozila (konec 2026) se lastništvo prenese na kupca &mdash; Glam-van izda račun kot posrednik</li>
+</ul>
+
+<p><strong>Postopek:</strong></p>
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-content">
+    <strong>Robeta izda račun na GY&Ouml;REI Kft.</strong> v višini &euro;55.000 neto. Ker gre za intra-EU dobavo (SI &rarr; HU), se DDV obračuna po reverse charge mehanizmu. Erika ne plača slovenskega DDV.
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-content">
+    <strong>Erika sklene kasko zavarovanje</strong> za vozilo (vklj. transport, toča, nesreča, vandalizem). Priporočamo zavarovanje pri madžarskem ali slovenskem zavarovalcu za čas, ko je vozilo v SLO pri Alfastreet.
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-content">
+    <strong>Vozilo ostane pri Alfastreet v Sežani</strong> ves čas gradnje. Alfastreet ga prevzame kot podizvajalec &mdash; ni potrebe po prevažanju.
+  </div>
+</div>
+
+<div class="info-box">
+  <div class="label">Pomembno</div>
+  Ko bo Glam-van d.o.o. ustanovljen, se lahko lastništvo prenese na Glam-van (ali pa Erika obdrži lastništvo do prodaje demo vozila). Odvisno od dogovora.
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>2. Alfastreet &mdash; Gradnja prototipa</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<h2>2.1 Ponudba Alfastreet (26/0004)</h2>
+
+<div class="info-box">
+  <div class="label">Wood Tech d.o.o. (Alfastreet) &middot; Ponudba 26/0004</div>
+  <strong>Predmet:</strong> Izdelava opreme za prototip vozila MB ANANYA &mdash; krajši model<br>
+  <strong>Cena:</strong> &euro;54.830 neto (&euro;66.893 z DDV 22%)<br>
+  <strong>Rok izdelave:</strong> 12 tednov od prejema naročila<br>
+  <strong>Rok dobave vozila:</strong> 5 dni po prejetem naročilu (vozilo je že pri njih)<br><br>
+  <strong>Vklju&ccaron;eno:</strong> izdelava opreme po navodilih naročnika, montaža, vzorčenje artiklov (1&times; mock-up + 1&times; končna verzija), okovja/zapirala/pritrdilni elementi, potrošni material, čiščenje vozila, projektna dokumentacija.<br>
+  <strong>Dokumentacija:</strong> ostaja last naročnika.
+</div>
+
+<h2>2.2 Plačilni pogoji (prilagojeni &mdash; začetek 1. maj 2026)</h2>
+
+<table>
+  <thead>
+    <tr><th>Faza</th><th>Delež</th><th>Datum</th><th>Znesek (neto)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1. Ob naročilu</td><td>30%</td><td>1. maj 2026</td><td>&euro;16.449</td></tr>
+    <tr><td>2. Ob izdelavi mock-up</td><td>30%</td><td>~1. junij 2026</td><td>&euro;16.449</td></tr>
+    <tr><td>3. Pred dobavo</td><td>40%</td><td>~15. julij 2026</td><td>&euro;21.932</td></tr>
+    <tr class="total"><td colspan="3">Skupaj Alfastreet (prototip)</td><td>&euro;54.830</td></tr>
+  </tbody>
+</table>
+
+<h2>2.3 Dodatna oprema &mdash; &euro;30.000</h2>
+
+<p>Erika nakaže Alfastreet dodatnih <strong>&euro;30.000</strong> za nabavo in vgradnjo vse dodatne opreme (BOM seznam). Alfastreet naroči komponente in jih vgradi v okviru 12-tedenskega roka.</p>
+
+<table>
+  <thead><tr><th>Komponenta</th><th>Cena (EUR)</th></tr></thead>
+  <tbody>
+    <tr><td>EcoFlow 10kWh Power Kit</td><td>9.797</td></tr>
+    <tr><td>B&amp;O Beosound Stage</td><td>2.100</td></tr>
+    <tr><td>Dometic TwinBoost 4000 (A/C)</td><td>2.099</td></tr>
+    <tr><td>Corian Solid Surface</td><td>~2.000</td></tr>
+    <tr><td>Elegance 2G Cut Short (WC)</td><td>1.672</td></tr>
+    <tr><td>Dometic NRX 130S (hladilnik)</td><td>1.529</td></tr>
+    <tr><td>Thule Awning (tenda)</td><td>1.500</td></tr>
+    <tr><td>Tiny Wash (pralno-su&scaron;ilni stroj)</td><td>1.239</td></tr>
+    <tr><td>EcoFlow 450W Solar &times; 2</td><td>1.198</td></tr>
+    <tr><td>Dometic FanTastic 3100</td><td>699</td></tr>
+    <tr><td>Thetford pe&ccaron;ica 420</td><td>555</td></tr>
+    <tr><td>Grey Water Tank 78L</td><td>490</td></tr>
+    <tr><td>mebloJOGI leži&scaron;če</td><td>445</td></tr>
+    <tr><td>Mosavit mozaik (~3 m&sup2;)</td><td>244</td></tr>
+    <tr><td>Water Tank 160L</td><td>200</td></tr>
+    <tr><td>GoBoard PRO + Waterdrop filter</td><td>~280</td></tr>
+    <tr class="total"><td>Skupaj oprema</td><td>~&euro;26.047</td></tr>
+    <tr class="sub"><td>Rezerva za nepredvideno + drobni material</td><td>~&euro;3.953</td></tr>
+    <tr class="total"><td>Skupaj Erika &rarr; Alfastreet (oprema)</td><td>&euro;30.000</td></tr>
+  </tbody>
+</table>
+
+<h2>2.4 Dokončanje &mdash; preostanek</h2>
+
+<p>Ob dokončanju vozila (pred predajo) Erika plača &scaron;e <strong>preostanek do skupne vrednosti &euro;160.000</strong>:</p>
+
+<table>
+  <thead><tr><th>Postavka</th><th>Znesek (neto)</th></tr></thead>
+  <tbody>
+    <tr><td>Vozilo od Robeta</td><td>&euro;55.000</td></tr>
+    <tr><td>Alfastreet prototip (ponudba 26/0004)</td><td>&euro;54.830</td></tr>
+    <tr><td>Oprema + drobni material</td><td>&euro;30.000</td></tr>
+    <tr class="total"><td>Skupaj investirano do sedaj</td><td>&euro;139.830</td></tr>
+    <tr><td>Preostanek (folija, plati&scaron;ča, pnevmatike, razno)</td><td>&euro;20.170</td></tr>
+    <tr class="total"><td>Skupna investicija demo vozilo</td><td>&euro;160.000</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>3. Homologacija v Sloveniji</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<p>Vozilo ima <strong>nepopoln COC</strong> (incomplete &mdash; koda XC1). Po predelavi v bivalno vozilo je potrebna <strong>posamična odobritev dodelanega vozila</strong> (individual approval).</p>
+
+<h2>3.1 Postopek</h2>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-content">
+    <strong>Priprava dokumentacije:</strong> originalni MB COC (1. stopnja), Listina o skladnosti (OBR RTI 764 + 765), tehnično poročilo o predelavi z vsemi prilogami (risbe, izračuni, certifikati).
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-content">
+    <strong>Posebna dokumentacija za bivalno vozilo:</strong> dokazilo o lastni&scaron;tvu, seznam vgrajene opreme (kuhalna plo&scaron;ča, umivalnik, vodna sistema), certifikat za sede&zcaron;e s 3-točkovnimi pasovi + sidrne točke, certifikat inštalaterja za plinsko in&scaron;talacijo, certifikat za elektro in&scaron;talacijo.
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-content">
+    <strong>Vlo&zcaron;itev vloge</strong> pri <strong>RTI d.o.o.</strong> (Maribor, tel. +386 2 450 26 15) ali <strong>AMZS</strong> (Ljubljana). RTI je bolj specializiran za to vrsto predelav.
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">4</div>
+  <div class="step-content">
+    <strong>Pregled vozila:</strong> fizi&ccaron;ni pregled, preverjanje skladnosti s predpisi (po&zcaron;arna varnost, pasovi, sidri&scaron;ča, vodotesnost).
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">5</div>
+  <div class="step-content">
+    <strong>AVP izda certifikat</strong> posamične odobritve. S tem je vozilo primerno za registracijo.
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">6</div>
+  <div class="step-content">
+    <strong>DMV (davek na motorna vozila)</strong> &mdash; plačilo ob prvi registraciji v SLO. Odvisno od CO&sup2; emisij in prostornine motorja.
+  </div>
+</div>
+<div class="step">
+  <div class="step-num">7</div>
+  <div class="step-content">
+    <strong>Tehnični pregled + registracija</strong> pri AMZS.
+  </div>
+</div>
+
+<div class="info-box">
+  <div class="label">Za Alfastreet</div>
+  Alfastreet mora zagotoviti vso tehnično dokumentacijo: risbe, material specifikacije, poročila o inštalacijah (elektro, vodo, plin). <strong>Certifikati za sede&zcaron;e + pasove</strong> so ključni &mdash; RTI lahko naredi izračun sidrnih točk.
+</div>
+
+<div class="warn-box">
+  <div class="label">Pozor &mdash; registracija na HU podjetje</div>
+  Če je vozilo v lasti GY&Ouml;REI Kft. (HU), se lahko registrira v Sloveniji začasno (za čas uporabe/sajmov) ali pa se lastni&scaron;tvo prenese na Glam-van d.o.o. pred registracijo. Alternativa: homologacija v HU (enostavneje, če je vozilo na HU podjetje). <strong>Priporočam posvet z RTI glede optimalne poti.</strong>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>4. Uporaba demo vozila (avg&ndash;dec 2026)</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="timeline">
+  <div class="tl-item"><div class="tl-date">28. avg &ndash; 6. sep</div><div class="tl-desc"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; svetovna premiera ANANYA GlamperVan. Nabiranje naročil.</div></div>
+  <div class="tl-item"><div class="tl-date">sep &ndash; nov</div><div class="tl-desc"><strong>European Road Tour</strong> &mdash; demo vozilo potuje po Evropi. Micro-eventi, foto/video produkcija, testne vo&zcaron;nje za potencialne kupce.</div></div>
+  <div class="tl-item"><div class="tl-date">dec 2026</div><div class="tl-desc"><strong>Prodaja demo vozila</strong> za ~&euro;210.000. Glam-van d.o.o. izda račun kupcu.</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>5. Prodaja demo vozila &amp; vračilo investicije</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<table>
+  <thead><tr><th>Postavka</th><th>Znesek</th></tr></thead>
+  <tbody>
+    <tr><td>Prodajna cena demo vozila</td><td>&euro;210.000</td></tr>
+    <tr class="section"><td colspan="2">Razdelitev:</td></tr>
+    <tr><td><strong>Vračilo Eriki</strong> (celotna investicija)</td><td>&euro;160.000</td></tr>
+    <tr><td>Preostanek &rarr; Glam-van operativni sklad</td><td>&euro;50.000</td></tr>
+    <tr class="sub"><td>&emsp;Marketing &amp; sejmi</td><td>~&euro;30.000</td></tr>
+    <tr class="sub"><td>&emsp;Garancijski sklad (popravila, napake)</td><td>~&euro;20.000</td></tr>
+    <tr class="total"><td>Skupaj</td><td>&euro;210.000</td></tr>
+  </tbody>
+</table>
+
+<div class="info-box">
+  <div class="label">Garancija &amp; popravila</div>
+  <strong>Alfastreet nosi garancijo na pohi&scaron;tvo</strong> (njihov stro&scaron;ek &mdash; del ponudbe).<br>
+  <strong>Druge napake</strong> (oprema, elektro, vodovod, mehanika) se popravljajo iz garancijskega sklada (&euro;20k).<br>
+  Alfastreet izvede popravila kot izvajalec &mdash; stro&scaron;ek iz sklada.
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>6. Faza 2 &mdash; Prva 2 serijska vozila (jan 2027)</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<p><strong>Erika in Rok vsak naročita po eno vozilo.</strong> Gradnja poteka simultano &mdash; to je začetek serijske proizvodnje.</p>
+
+<h2>6.1 Stro&scaron;ki serijskega vozila</h2>
+
+<table>
+  <thead><tr><th>Postavka</th><th>Znesek (neto)</th></tr></thead>
+  <tbody>
+    <tr><td>Osnovno vozilo &mdash; Tourne Mobil (Sprinter + izolacija + talno ogrevanje + tlaki)</td><td>&euro;60.000</td></tr>
+    <tr><td>Alfastreet &mdash; notranjost, monta&zcaron;a opreme, fini&scaron;ing, folija</td><td>&euro;35.000</td></tr>
+    <tr><td>Oprema &amp; komponente (BOM)</td><td>&euro;26.000</td></tr>
+    <tr><td>Offroad plati&scaron;ča + pnevmatike + razno</td><td>&euro;19.000</td></tr>
+    <tr class="total"><td>Skupaj proizvodni stro&scaron;ek / vozilo</td><td>&euro;140.000</td></tr>
+  </tbody>
+</table>
+
+<h2>6.2 Postopek naročila</h2>
+
+<p><strong>Erika plača Alfastreet v 3 obrokih</strong> za izdelavo njenega vozila (brez provizije &mdash; po nabavni ceni). Alfastreet koordinira celoten proces vklj. z naročilom pri Tourne Mobil.</p>
+
+<p><strong>Rok / Glam-van d.o.o.</strong> naroči svoje vozilo po enakem postopku &mdash; januar 2027, dostava ~april 2027.</p>
+
+<h2>6.3 Tourne Mobil &mdash; dobavna veriga (serija)</h2>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-content"><strong>Tourne Mobil</strong> kupi MB Sprinter (MB certified bodybuilder), vgradi izolacijo, talno ogrevanje in talne obloge.</div>
+</div>
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-content"><strong>Alfastreet</strong> prevzame pripravljeno vozilo za &euro;60k in izvede kompletno gradnjo notranjosti + montažo opreme.</div>
+</div>
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-content"><strong>Glam-van</strong> opravi končno kontrolo kakovosti, brand compliance, prevzemni test.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>7. Delitev dobička (serija)</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<h2>7.1 Formula</h2>
+
+<div class="info-box">
+  <div class="label">Izračun na vozilo</div>
+  <strong>Neto prodajna cena:</strong> &euro;225.000<br>
+  <strong>Neposredni proizvodni stro&scaron;ki:</strong> &minus;&euro;140.000<br>
+  <strong>Bruto mar&zcaron;a:</strong> &euro;85.000<br><br>
+  <strong>Provizija za pridobitev kupca:</strong> &minus;&euro;20.000 (fiksna &mdash; kdor proda: Glam-van, Erika ali Alfastreet)<br>
+  <strong>Dobiček za delitev:</strong> &euro;65.000
+</div>
+
+<h2>7.2 Razdelitev dobička</h2>
+
+<table>
+  <thead><tr><th>Prejemnik</th><th>Delež</th><th>Znesek / vozilo</th></tr></thead>
+  <tbody>
+    <tr><td>Provizija (kdor proda)</td><td>fiksna</td><td>&euro;20.000</td></tr>
+    <tr class="section"><td colspan="3">Neto dobiček &euro;65.000:</td></tr>
+    <tr><td><strong>Glam-van d.o.o.</strong> (IP, brand, prodaja, marketing)</td><td>75%</td><td>&euro;48.750</td></tr>
+    <tr><td><strong>Alfastreet</strong> (servis, distribucija, garancija)</td><td>25%</td><td>&euro;16.250</td></tr>
+    <tr class="section"><td colspan="3">Erika kot 10% lastnica Glam-van:</td></tr>
+    <tr><td><strong>Erika &mdash; dividenda</strong> (10% dobička Glam-van)</td><td>10% &times; 75%</td><td>&euro;4.875</td></tr>
+    <tr><td><strong>Rok &mdash; preostanek Glam-van</strong></td><td>90% &times; 75%</td><td>&euro;43.875</td></tr>
+  </tbody>
+</table>
+
+<h2>7.3 Scenariji provizij</h2>
+
+<table>
+  <thead><tr><th>Scenarij</th><th>Glam-van</th><th>Alfastreet</th><th>Erika</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A:</strong> Glam-van najde kupca</td><td>&euro;48.750 + &euro;20k = <strong>&euro;68.750</strong></td><td>&euro;16.250</td><td>&euro;4.875 (dividenda)</td></tr>
+    <tr><td><strong>B:</strong> Alfastreet najde kupca</td><td>&euro;48.750</td><td>&euro;16.250 + &euro;20k = <strong>&euro;36.250</strong></td><td>&euro;4.875 (dividenda)</td></tr>
+    <tr><td><strong>C:</strong> Erika najde kupca</td><td>&euro;48.750</td><td>&euro;16.250</td><td>&euro;4.875 + &euro;20k = <strong>&euro;24.875</strong></td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>8. Erikin lastni&scaron;ki dele&zcaron; &amp; pravice</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="callout">
+  <div class="big">10%</div>
+  <div class="small">lastni&scaron;ki delež v Glam-van d.o.o.</div>
+</div>
+
+<p><strong>Ob podpisu pogodbe o sodelovanju</strong> Erika pridobi <strong>10% poslovni dele&zcaron;</strong> v Glam-van d.o.o. To ji zagotavlja:</p>
+
+<ul style="margin: 0 0 16px 24px; line-height: 2;">
+  <li><strong>10% dividende</strong> od dobička Glam-van (7,5% celotnega dobička projekta)</li>
+  <li><strong>&euro;20.000 provizija</strong> za vsakega kupca, ki ga sama privede</li>
+  <li><strong>Glasovalna pravica</strong> na skupščini sorazmerno z dele&zcaron;em</li>
+  <li><strong>Vpogled v poslovanje</strong> &mdash; transparentno poročanje (open book)</li>
+  <li><strong>Vozilo po nabavni ceni</strong> (~&euro;140k namesto &euro;225k)</li>
+</ul>
+
+<div class="info-box">
+  <div class="label">Pogoj za pridobitev dele&zcaron;a</div>
+  Erika financira demo vozilo (&euro;160.000). Denar ji je v celoti vrnjen ob prodaji demo vozila. Poslovni delež obdrži trajno (dokler je družbenica).
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>9. Celotna časovnica</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="timeline">
+  <div class="tl-item"><div class="tl-date">april 2026</div><div class="tl-desc"><strong>Podpis pogodbe</strong> med Rokom, Eriko in Alfastreet. Erika pridobi 10% Glam-van. Ustanovitev Glam-van d.o.o.</div></div>
+  <div class="tl-item"><div class="tl-date">april 2026</div><div class="tl-desc"><strong>Erika kupi vozilo od Robeta</strong> (&euro;55.000 neto). Kasko zavarovanje. Vozilo ostane pri Alfastreet.</div></div>
+  <div class="tl-item"><div class="tl-date">1. maj 2026</div><div class="tl-desc"><strong>Naročilo Alfastreet</strong> &mdash; 1. obrok &euro;16.449. Začetek 12-tedenske gradnje.</div></div>
+  <div class="tl-item"><div class="tl-date">~1. jun 2026</div><div class="tl-desc"><strong>Mock-up faza</strong> &mdash; 2. obrok Alfastreet &euro;16.449. Erika nakaže &euro;30.000 za opremo.</div></div>
+  <div class="tl-item"><div class="tl-date">~15. jul 2026</div><div class="tl-desc"><strong>Dokončanje</strong> &mdash; 3. obrok Alfastreet &euro;21.932. Preostanek (&euro;20.170) za folijo, platišča, razno.</div></div>
+  <div class="tl-item"><div class="tl-date">avg 2026</div><div class="tl-desc"><strong>Homologacija</strong> (RTI / AMZS). Registracija. Tehnični pregled.</div></div>
+  <div class="tl-item"><div class="tl-date">28. avg &ndash; 6. sep</div><div class="tl-desc"><strong>Caravan Salon D&uuml;sseldorf</strong> &mdash; svetovna premiera.</div></div>
+  <div class="tl-item"><div class="tl-date">sep &ndash; nov 2026</div><div class="tl-desc"><strong>European Road Tour</strong> &mdash; demo vožnje, micro-eventi, marketing.</div></div>
+  <div class="tl-item"><div class="tl-date">dec 2026</div><div class="tl-desc"><strong>Prodaja demo vozila</strong> ~&euro;210k. &euro;160k vračilo Eriki. &euro;50k operativni sklad.</div></div>
+  <div class="tl-item"><div class="tl-date">jan 2027</div><div class="tl-desc"><strong>Erika + Rok vsak naročita po 1 vozilo.</strong> Simultana gradnja pri Alfastreet. Erika plača &euro;140k (nabavna cena, brez provizije).</div></div>
+  <div class="tl-item"><div class="tl-date">Q2 2027</div><div class="tl-desc"><strong>Začetek serijske proizvodnje.</strong> Cilj: 10 vozil / leto.</div></div>
+  <div class="tl-item"><div class="tl-date">2027&ndash;2030</div><div class="tl-desc"><strong>Rast na 15 vozil / leto.</strong> Erika prejema dividende + provizije.</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>10. Erikina denarna sredstva &mdash; tok plačil</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<table>
+  <thead><tr><th>Datum</th><th>Prejemnik</th><th>Namen</th><th>Znesek</th></tr></thead>
+  <tbody>
+    <tr><td>apr 2026</td><td>Robeta d.o.o.</td><td>Nakup Sprinter</td><td>&euro;55.000</td></tr>
+    <tr><td>1. maj</td><td>Alfastreet</td><td>1. obrok (30% ponudbe)</td><td>&euro;16.449</td></tr>
+    <tr><td>~1. jun</td><td>Alfastreet</td><td>2. obrok (30%) + oprema</td><td>&euro;46.449</td></tr>
+    <tr><td>~15. jul</td><td>Alfastreet</td><td>3. obrok (40%)</td><td>&euro;21.932</td></tr>
+    <tr><td>jul&ndash;avg</td><td>Razni</td><td>Folija, platišča, razno</td><td>&euro;20.170</td></tr>
+    <tr class="total"><td colspan="3">Skupaj investicija Erika</td><td>&euro;160.000</td></tr>
+    <tr><td>dec 2026</td><td colspan="2"><strong>Vračilo iz prodaje demo vozila</strong></td><td style="color:#b5a291;">&minus;&euro;160.000</td></tr>
+    <tr class="total"><td colspan="3">Neto izpostavljenost Erike (po prodaji demo)</td><td>&euro;0</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>11. 5-letna projekcija &mdash; Erikin donos</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<table>
+  <thead><tr><th>Leto</th><th>Vozila</th><th>Dividenda (10%)</th><th>Provizije (~3/leto)</th><th>Skupaj / leto</th><th>Kumulativno</th></tr></thead>
+  <tbody>
+    <tr><td>2026</td><td>1 (demo)</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td><td>&euro;0</td></tr>
+    <tr><td>2027</td><td>10</td><td>&euro;48.750</td><td>&euro;60.000</td><td>&euro;108.750</td><td>&euro;108.750</td></tr>
+    <tr><td>2028</td><td>10</td><td>&euro;48.750</td><td>&euro;60.000</td><td>&euro;108.750</td><td>&euro;217.500</td></tr>
+    <tr><td>2029</td><td>12</td><td>&euro;58.500</td><td>&euro;60.000</td><td>&euro;118.500</td><td>&euro;336.000</td></tr>
+    <tr><td>2030</td><td>15</td><td>&euro;73.125</td><td>&euro;60.000</td><td>&euro;133.125</td><td>&euro;469.125</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <div class="big">&euro;469.125</div>
+  <div class="small">Erikin kumulativni donos do 2030 (dividende + provizije)</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<h1>12. Naslednji koraki</h1>
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-content"><strong>Sestanek Rok + Erika:</strong> potrditev modela, lastni&scaron;kega dele&zcaron;a in pogojev.</div>
+</div>
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-content"><strong>Ustanovitev Glam-van d.o.o.</strong> &mdash; Rok 90%, Erika 10%. Notar, AJPES.</div>
+</div>
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-content"><strong>Pogodba o sodelovanju</strong> &mdash; tristranski dogovor (Glam-van / Erika / Alfastreet). Odvetnik.</div>
+</div>
+<div class="step">
+  <div class="step-num">4</div>
+  <div class="step-content"><strong>Erika kupi Sprinter od Robeta</strong> (&euro;55k). Kasko zavarovanje.</div>
+</div>
+<div class="step">
+  <div class="step-num">5</div>
+  <div class="step-content"><strong>Naročilo Alfastreet</strong> &mdash; 1. obrok. Začetek 12-tedenske gradnje.</div>
+</div>
+<div class="step">
+  <div class="step-num">6</div>
+  <div class="step-content"><strong>Kontakt RTI d.o.o.</strong> (Maribor) za posvet glede homologacije &mdash; idealno &zcaron;e pred začetkom gradnje.</div>
+</div>
+
+<div class="footer">
+  Glam-van d.o.o. &middot; Na Zavrteh 15, Dom&zcaron;ale &middot; Rok Kordin &middot; rok@glam-van.com &middot; +386 41 316 725<br>
+  EUIPO RCD 015116778-0001 &middot; Zaupno &middot; April 2026
+</div>
+
+</body>
+</html>
